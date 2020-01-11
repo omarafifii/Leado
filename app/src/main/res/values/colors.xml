@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#D1FCFA</color>
+    <color name="colorPrimaryDark">#4EA59D</color>
+    <color name="colorAccent">#22D0C4</color>
+    <color name="colorDark">#1F314A</color>
+    <color name="colorTextDark">#1F314A</color>
+    <color name="colorIconDark">#1F314A</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorDisabledCard">#80FFFFFF</color>
+    <color name="colorTextDisabled">#801F314A</color>
+    <color name="colorDisabled">#1A000000</color>
+    <color name="colorTransparent">#00FFFFFF</color>
+
+</resources>

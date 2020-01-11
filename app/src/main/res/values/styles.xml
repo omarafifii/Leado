@@ -1,0 +1,64 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="android:colorBackground">@color/colo</item>-->
+        <!--<item name="colorError">@color/my_app_error_color</item>-->
+
+        <!--&lt;!&ndash; New MaterialComponents attributes. &ndash;&gt;-->
+        <!--<item name="colorPrimaryVariant">@color/my_app_primary_variant_color</item>-->
+        <!--<item name="colorSecondaryVariant">@color/my_app_secondary_variant_color</item>-->
+        <!--<item name="colorSurface">@color/my_app_surface_color</item>-->
+        <!--<item name="colorOnPrimary">@color/my_app_color_on_primary</item>-->
+        <!--<item name="colorOnSecondary">@color/my_app_color_on_secondary</item>-->
+        <!--<item name="colorOnBackground">@color/my_app_color_on_background</item>-->
+        <!--<item name="colorOnError">@color/my_app_color_on_error</item>-->
+        <!--<item name="colorOnSurface">@color/my_app_color_on_surface</item>-->
+        <!--<item name="scrimBackground">@color/mtrl_scrim_color</item>-->
+        <item name="textAppearanceHeadline1">@style/Headline1</item>
+        <item name="textAppearanceHeadline2">@style/Headline2</item>
+        <item name="textAppearanceHeadline3">@style/Headline3</item>
+        <item name="textAppearanceSubtitle1">@style/Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/Subtitle2</item>
+
+
+    </style>
+    <style name="Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:fontFamily">@font/rubik_medium</item>
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:fontFamily">@font/rubik_light</item>
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:textSize">20sp</item>
+
+    </style>
+
+    <style name="Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="android:fontFamily">@font/rubik_light</item>
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:textSize">18sp</item>
+
+    </style>
+
+    <style name="Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/rubik_light</item>
+        <item name="android:textColor">@color/colorTextDark</item>
+
+    </style>
+
+    <style name="Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/rubik_light</item>
+        <item name="android:textColor">@color/colorTextDark</item>
+
+    </style>
+
+
+</resources>

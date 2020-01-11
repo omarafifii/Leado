@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Leado</string>
+    <string name="awareness_room">Awareness Room</string>
+    <string name="self_awareness">Self Awareness</string>
+    <string name="Introduction">Introduction</string>
+    <string name="lesson_text">The first building block of emotional intelligence is self-awareness. Self-awareness is
+        our ability to recognize our own emotions and their effects on us and others. Without being aware of and
+        understanding our own emotions, it will be difficult for us to move into the other emotional competencies like
+        self-management, social awareness, or team leadership.Self-improvement is also referred to as
+        personal-development can be said as the improvement to one’s own mind and characterthrough one’s own efforts. It
+        is a conscious process where one decides to take oneself in hand and change their life-for the
+        better(introduction to self improvement).
+    </string>
+</resources>
