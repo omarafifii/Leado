@@ -11,4 +11,7 @@
         is a conscious process where one decides to take oneself in hand and change their life-for the
         better(introduction to self improvement).
     </string>
+    <string name="phone_number">Phone Number</string>
+    <string name="verify_hint">Help us Identify you</string>
+    <string name="let_s_start_the_journey_together">Let\'s Start the Journey Together</string>
 </resources>
