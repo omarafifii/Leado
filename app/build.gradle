@@ -2,6 +2,8 @@ apply plugin: Deps.androidApplication
 
 apply plugin: Deps.kotlinAndroid
 
+apply plugin: Deps.kotlinKapt
+
 apply plugin: Deps.kotlinAndroidExtensions
 
 android {
@@ -30,5 +32,33 @@ dependencies {
     implementation JetPack.constraintLayout
 
     implementation UI.material
+
+    implementation Lifecycle.lifecycleKtx
+    implementation Lifecycle.livedata
+    implementation Lifecycle.viewmodel
+    implementation Lifecycle.viewmodelKtx
+    kapt Lifecycle.lifecycleCompiler
+
+    implementation RxJava.java
+    implementation RxJava.android
+    implementation RxJava.relay
+
+    implementation Firebase.analytics
+    implementation Firebase.crashlytics
+    implementation Firebase.auth
+    implementation Firebase.RxAuth
+    implementation Firebase.RxAuthKotlin
+    implementation Firebase.core
+    implementation Firebase.RxCore
+
+    implementation Koin.android
+    implementation Koin.androidViewmodel
+    implementation Koin.androidScope
+
     testImplementation UnitTests.jUnit
+    testImplementation UnitTests.mockito
+    testImplementation UnitTests.harmcrest
+    testImplementation UnitTests.mockitoInline
+    testImplementation UnitTests.arch
+
 }

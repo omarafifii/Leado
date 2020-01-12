@@ -10,6 +10,7 @@ object Deps {
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     const val androidApplication = "com.android.application"
     const val kotlinAndroid = "kotlin-android"
+    const val kotlinKapt = "kotlin-kapt"
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
 
 }
@@ -53,7 +54,7 @@ private object Versions {
     const val junit = "4.12"
     const val testRunner = "3.2.0-alpha04"
     const val cameraX = "1.0.0-alpha05"
-
+    const val koin ="2.0.1"
     const val compression = "2.2.2"
     const val anko = "0.10.8"
 }
@@ -134,6 +135,12 @@ object Moshi {
     val kotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     val retrofitConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
 
+}
+
+object Koin {
+     val androidScope: String = "org.koin:koin-android-scope:" + Versions.koin
+     val androidViewmodel: String = "org.koin:koin-android-viewmodel:" + Versions.koin
+     val android: String = "org.koin:koin-android:" + Versions.koin
 }
 
 object UnitTests {
