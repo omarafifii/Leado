@@ -55,6 +55,8 @@ dependencies {
     implementation Koin.androidViewmodel
     implementation Koin.androidScope
 
+    implementation Utils.instabug
+
     testImplementation UnitTests.jUnit
     testImplementation UnitTests.mockito
     testImplementation UnitTests.harmcrest

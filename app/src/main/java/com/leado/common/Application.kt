@@ -1,6 +1,8 @@
 package com.leado.common
 
 import android.app.Application
+import com.instabug.library.Instabug
+import com.leado.R
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -11,6 +13,7 @@ class Application : Application() {
             androidContext(this@Application)
             modules(applicationModule)
         }
+        Instabug.Builder(this, getString(R.string.instabug_api)).build()
 
 
 

@@ -82,6 +82,7 @@ object Utils {
     const val anko = "org.jetbrains.anko:anko-commons:${Versions.anko}"
     const val circularImage = "de.hdodenhof:circleimageview:${Versions.circularImage}"
     const val stepper = "com.github.badoualy:stepper-indicator:${Versions.stepper}"
+    const val instabug = "com.instabug.library:instabug:9.0.4"
 }
 
 object UI {
