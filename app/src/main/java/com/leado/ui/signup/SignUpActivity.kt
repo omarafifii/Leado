@@ -18,9 +18,12 @@ import com.leado.common.base.BaseActivity
 import com.leado.ui.main.MainActivity
 import com.leado.ui.phoneverification.PhoneVerificationActivity
 import kotlinx.android.synthetic.main.activity_signup.*
+import org.koin.android.viewmodel.ext.android.getViewModel
 
 class SignUpActivity : BaseActivity<SignUpViewModel>() {
     override fun getLayoutResource(): Int = R.layout.activity_signup
+
+    override fun getFeatureViewModel(): SignUpViewModel = getViewModel()
 
     override fun useView() {
         text_input_phoneNumber.requestFocus()

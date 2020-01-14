@@ -9,16 +9,15 @@ import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import com.leado.common.extensions.gone
 import com.leado.common.extensions.show
-import com.leado.common.viewstate.BaseViewState
-import com.leado.common.viewstate.consume
+
 import org.koin.android.viewmodel.ext.android.viewModel
 
 abstract class BaseFragment< T : BaseViewModel> : Fragment() {
-    private val _viewModel: BaseViewModel by viewModel()
 
-    @Suppress("UNCHECKED_CAST")
     protected val viewModel: T
-        get() = _viewModel as T
+        get() = getFeatureViewModel()
+
+    abstract fun getFeatureViewModel(): T
 
     override fun onCreateView(
         inflater: LayoutInflater,

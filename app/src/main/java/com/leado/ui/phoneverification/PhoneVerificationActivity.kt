@@ -18,9 +18,12 @@ import com.leado.R
 import com.leado.common.base.BaseActivity
 import com.leado.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_phone_verification.*
+import org.koin.android.viewmodel.ext.android.getViewModel
 
 class PhoneVerificationActivity : BaseActivity<VerificationViewModel>() {
     override fun getLayoutResource(): Int = R.layout.activity_phone_verification
+
+    override fun getFeatureViewModel(): VerificationViewModel = getViewModel()
 
     override fun useView() {
         text_change_number.setOnClickListener {
