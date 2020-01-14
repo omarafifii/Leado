@@ -12,12 +12,10 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 
-
-    private val _viewModel: BaseViewModel by viewModel()
-
-    @Suppress("UNCHECKED_CAST")
     protected val viewModel: T
-        get() = _viewModel as T
+        get() = getFeatureViewModel()
+
+    abstract fun getFeatureViewModel(): T
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
