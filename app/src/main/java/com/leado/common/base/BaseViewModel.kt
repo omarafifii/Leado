@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.leado.common.schedulers.BaseSchedulerProvider
-import com.leado.common.viewstate.BaseViewState
 import io.reactivex.CompletableTransformer
 import io.reactivex.ObservableTransformer
 import io.reactivex.SingleTransformer
