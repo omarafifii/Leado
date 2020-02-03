@@ -6,6 +6,9 @@ apply plugin: Deps.kotlinKapt
 
 apply plugin: Deps.kotlinAndroidExtensions
 
+apply plugin: Deps.googlePlayServices
+
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -44,7 +47,6 @@ dependencies {
     implementation RxJava.relay
 
     implementation Firebase.analytics
-    implementation Firebase.crashlytics
     implementation Firebase.auth
     implementation Firebase.RxAuth
     implementation Firebase.RxAuthKotlin

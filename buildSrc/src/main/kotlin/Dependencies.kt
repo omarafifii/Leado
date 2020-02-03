@@ -12,6 +12,8 @@ object Deps {
     const val kotlinAndroid = "kotlin-android"
     const val kotlinKapt = "kotlin-kapt"
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
+    const val googlePlayServices= "com.google.gms.google-services"
+    const val googleServicesPlugin= "com.google.gms:google-services:4.3.3"
 
 }
 

@@ -29,7 +29,7 @@ class SignUpActivity : BaseActivity<SignUpViewModel>() {
         text_input_phoneNumber.requestFocus()
         text_input_phoneNumber.addTextChangedListener {
             if (it.toString().isNotEmpty())
-                viewModel.validatePhone(text_input_extension.text.toString() + it.toString())
+                viewModel.validatePhone(it.toString())
         }
 
         button_signup.setOnClickListener {

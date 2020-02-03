@@ -88,17 +88,14 @@ class SignUpViewModel(
                 _error.postValue(it)
             })
             .addDisposable()
-
+0
     }
 
     private fun validationRulesPhone(phone: String): Observable<Boolean> {
-        val fullPhone = "+971$phone"
-        Pattern.compile("^(?:\\+971|00971|0)?(?:50|51|52|55|56|2|3|4|6|7|9)\\d{7}\$").apply {
-            if (!matcher(fullPhone).find())
-                return Observable.error(Throwable("Start with your operator code, i.e. 50 or 56."))
+        Pattern.compile("^(010|011|012|015)[0-9]{8}\$").apply {
+            if (!matcher(phone).find())
+                return Observable.error(Throwable("Wrong Phone Number."))
         }
-        if (fullPhone.length > 13)
-            return Observable.error(Throwable("Your phone number cannot be longer than 9 digits."))
         return Observable.just(true)
     }
 
