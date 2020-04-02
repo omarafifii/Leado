@@ -30,7 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:background="#d5fdfb"
-            app:tabSelectedTextColor="#000000">
+            app:tabSelectedTextColor="#22d0c4"
+            app:tabTextColor="#1f314a">
 
 
             <com.google.android.material.tabs.TabItem
