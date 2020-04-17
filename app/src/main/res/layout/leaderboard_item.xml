@@ -17,7 +17,7 @@
     app:layout_constraintVertical_bias="0.0">
 
     <ImageView
-        android:id="@+id/iv_badge"
+        android:id="@+id/iv_leaderboard_profile"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginEnd="8dp"
@@ -30,11 +30,11 @@
         android:layout_height="match_parent"
         android:layout_weight="5"
         android:orientation="vertical"
-        android:paddingLeft="16dp"
+        android:paddingLeft="4dp"
         android:paddingTop="8dp">
 
         <TextView
-            android:id="@+id/tv_BadgeName"
+            android:id="@+id/tv_Leaderboard_Name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -44,7 +44,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/tv_BadgeDetail"
+            android:id="@+id/tv_Leaderboard_points"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -52,16 +52,29 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-    <TextView
+    <!--    <com.leado.ui.achievements.CircularTextView-->
+    <!--        android:id="@+id/circular_textview_rank"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="1"-->
+    <!--        android:layout_gravity="center_vertical"-->
+    <!--        android:gravity="center"-->
+    <!--        android:textSize="18sp"-->
+    <!--        android:layout_weight="1"-->
+
+    <!--        android:background="@color/colorDark"-->
+    <!--        />-->
+    <com.leado.ui.achievements.EqualWidthHeightTextView
         android:id="@+id/tv_rank"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="@drawable/rounded_textview"
         android:gravity="center"
-        android:padding="8dp"
+        android:layout_gravity="center_vertical"
+        android:padding="1dp"
         android:text="1"
         android:textColor="#22d0c4"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
 </LinearLayout>
