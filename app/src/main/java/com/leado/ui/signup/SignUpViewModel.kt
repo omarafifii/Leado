@@ -92,7 +92,7 @@ class SignUpViewModel(
     }
 
     private fun validationRulesPhone(phone: String): Observable<Boolean> {
-        Pattern.compile("^(010|011|012|015)[0-9]{8}\$").apply {
+        Pattern.compile("^(10|011|012|015)[0-9]{8}\$").apply {
             if (!matcher(phone).find())
                 return Observable.error(Throwable("Wrong Phone Number."))
         }

@@ -29,11 +29,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         enableStrictMode()
 
-        //check for Auth and if user not logged in go back to registration
-        //SignUpActivity.start(this)
-
-        val navController = findNavController(R.id.nav_host_fragment)
-        setupBottomNavMenu(navController)
+//        check for Auth and if user not logged in go back to registration
+        SignUpActivity.start(this)
+//        val navController = findNavController(R.id.nav_host_fragment)
+//        setupBottomNavMenu(navController)
 
     }
 

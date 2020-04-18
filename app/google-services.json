@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "601787116670",
-    "firebase_url": "https://leado-5c1b5.firebaseio.com",
-    "project_id": "leado-5c1b5",
-    "storage_bucket": "leado-5c1b5.appspot.com"
+    "project_number": "860026273220",
+    "firebase_url": "https://leado3.firebaseio.com",
+    "project_id": "leado3",
+    "storage_bucket": "leado3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:601787116670:android:fbb71d3ca81e6646bdbc2f",
+        "mobilesdk_app_id": "1:860026273220:android:248e7b946280c098c07891",
         "android_client_info": {
           "package_name": "com.leado"
         }
       },
       "oauth_client": [
         {
-          "client_id": "601787116670-ssbt4131ssjm1jtok363ili97b02lgt9.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.leado",
-            "certificate_hash": "8bc778faea2b176d4cf037022ce14eb1ef66b383"
-          }
-        },
-        {
-          "client_id": "601787116670-174bhh8688nkeltu4ftrl0plndbigt7c.apps.googleusercontent.com",
+          "client_id": "860026273220-2qjjmubhl319sgj34r9f3hpd26600q0k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDCyClXU9hHIQTc2ZBUYrxD9Mvi5S4u4Gk"
+          "current_key": "AIzaSyBz9tJ8UC3fkxpwqV9NDwp1hKY3aAC3jAA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "601787116670-174bhh8688nkeltu4ftrl0plndbigt7c.apps.googleusercontent.com",
+              "client_id": "860026273220-2qjjmubhl319sgj34r9f3hpd26600q0k.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
