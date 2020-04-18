@@ -53,7 +53,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginTop="150dp"
-        android:src="@drawable/purple_circle_png_congrats"
+        android:src="@drawable/congrats_purple_circle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
