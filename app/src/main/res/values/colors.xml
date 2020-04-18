@@ -12,5 +12,6 @@
     <color name="colorTextDisabled">#801F314A</color>
     <color name="colorDisabled">#1A000000</color>
     <color name="colorTransparent">#00FFFFFF</color>
+    <color name="bottomNavColor">@color/bottom_nav_color_selector</color>
 
 </resources>
