@@ -23,21 +23,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <view
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:visibility="invisible"></view>
-
-        <ImageView
-            android:id="@+id/congrats_share_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="24dp"
-            android:src="@drawable/share_logo" />
+            tools:visibility="invisible" />
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <ImageView
+        android:id="@+id/congrats_share_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:src="@drawable/share_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/congrats_achievements_btn"
@@ -48,6 +50,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
     <ImageView
         android:id="@+id/congrats_img"
         android:layout_width="140dp"
@@ -57,6 +60,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/lesson_full_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/congrats_img"
+        app:layout_constraintEnd_toEndOf="@+id/congrats_img"
+        app:layout_constraintStart_toStartOf="@+id/congrats_img"
+        app:layout_constraintTop_toTopOf="@+id/congrats_img" />
 
     <TextView
         android:id="@+id/textView24"
@@ -90,7 +102,7 @@
         android:layout_marginTop="12dp"
         android:text="You revealed a new feature!"
         android:textColor="@color/colorWhite"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
