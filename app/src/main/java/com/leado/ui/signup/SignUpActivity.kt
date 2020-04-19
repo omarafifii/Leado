@@ -10,11 +10,13 @@ package com.leado.ui.signup
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import com.leado.R
 import com.leado.common.base.BaseActivity
+import com.leado.ui.congrats.Congrats_Fragment
 import com.leado.ui.main.MainActivity
 import com.leado.ui.phoneverification.PhoneVerificationActivity
 import kotlinx.android.synthetic.main.activity_signup.*
@@ -39,6 +41,15 @@ class SignUpActivity : BaseActivity<SignUpViewModel>() {
                     this@SignUpActivity
                 )
         }
+
+//        for testing
+        test_button.setOnClickListener {
+            val intent = Intent(this, Congrats_Fragment::class.java)
+            Log.d("sign", "before intent")
+            startActivity(intent)
+            Log.e("sign", "after intent")
+        }
+//      end testing
 
         viewModel.success.observe(this, Observer{
             if (it)
