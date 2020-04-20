@@ -33,7 +33,6 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
     protected abstract fun getLoadingView(): View?
     protected abstract fun useView()
 
-
     fun renderError(message: String?) {
         message?.let {
             showMessage(it)

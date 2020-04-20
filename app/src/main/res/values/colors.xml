@@ -3,6 +3,7 @@
     <color name="colorPrimary">#D1FCFA</color>
     <color name="colorPrimaryDark">#4EA59D</color>
     <color name="colorAccent">#22D0C4</color>
+    <color name="light_bg_color">#d2fcfa</color>
     <color name="colorDark">#1F314A</color>
     <color name="colorTextDark">#1F314A</color>
     <color name="colorIconDark">#1F314A</color>
@@ -11,7 +12,6 @@
     <color name="colorTextDisabled">#801F314A</color>
     <color name="colorDisabled">#1A000000</color>
     <color name="colorTransparent">#00FFFFFF</color>
-    <color name="colorLeaderboardGrey">#d5d8dd</color>
-
+    <color name="bottomNavColor">@color/bottom_nav_color_selector</color>
 
 </resources>

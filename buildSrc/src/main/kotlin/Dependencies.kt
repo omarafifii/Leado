@@ -34,7 +34,7 @@ private object Versions {
     const val firebaseAnalytics = "16.0.5"
     const val firebaseCrashlytics = "2.10.1"
     const val firebaseStorage = "16.0.1"
-    const val firebaseAuth = "16.1.0"
+    const val firebaseAuth = "19.3.0"
     const val rxandroid = "2.1.1"
     const val dagger = "2.25.2"
     const val dexmaker = "2.12.1"
