@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recycler_achievements"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d5fdfb"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:itemCount="5"
+    tools:listitem="@layout/badge_item">
+
+
+</androidx.recyclerview.widget.RecyclerView>
