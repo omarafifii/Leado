@@ -14,6 +14,7 @@
         </activity>
         <activity android:name=".ui.phoneverification.PhoneVerificationActivity">
         </activity>
+        <activity android:name=".ui.achievements.AchievementsActivity"></activity>
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
