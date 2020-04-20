@@ -1,4 +1,4 @@
-package com.leado.ui.achievements
+package com.leado.ui.navBarFragments.LeaderBoard.viewpager
 
 import android.view.LayoutInflater
 import android.view.View
@@ -27,7 +27,9 @@ class BadgesViewAdapter() : RecyclerView.Adapter<BadgesViewAdapter.Viewholder>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
         val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.badge_item, parent, false)
-        return Viewholder(view)
+        return Viewholder(
+            view
+        )
     }
 
     override fun getItemCount(): Int {

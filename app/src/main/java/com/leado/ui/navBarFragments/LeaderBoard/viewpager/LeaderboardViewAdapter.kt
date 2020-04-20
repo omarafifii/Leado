@@ -1,4 +1,4 @@
-package com.leado.ui.achievements
+package com.leado.ui.navBarFragments.LeaderBoard.viewpager
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
+import com.leado.common.views.EqualWidthHeightTextView
+import kotlinx.android.synthetic.main.leaderboard_item.view.*
 
 class LeaderboardViewAdapter() : RecyclerView.Adapter<LeaderboardViewAdapter.Viewholder>() {
 
@@ -25,11 +27,11 @@ class LeaderboardViewAdapter() : RecyclerView.Adapter<LeaderboardViewAdapter.Vie
 
     class Viewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var memberNameTV: TextView = itemView.findViewById(R.id.tv_Leaderboard_Name)
-        var pointsTV: TextView = itemView.findViewById(R.id.tv_Leaderboard_points)
-        var imageResource: ImageView = itemView.findViewById(R.id.iv_leaderboard_profile)
+        var memberNameTV: TextView = itemView.tv_Leaderboard_Name
+        var pointsTV: TextView = itemView.tv_Leaderboard_points
+        var imageResource: ImageView = itemView.iv_leaderboard_profile
         var rank: EqualWidthHeightTextView = itemView.findViewById(R.id.tv_rank)
-//        var circularRank: CircularTextView = itemView.findViewById(R.id.circular_textview_rank)
+//        var circularRank: CircularTextView = itemView.R.id.circular_textview_rank
 
 
     }
@@ -37,7 +39,9 @@ class LeaderboardViewAdapter() : RecyclerView.Adapter<LeaderboardViewAdapter.Vie
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
         val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.leaderboard_item, parent, false)
-        return Viewholder(view)
+        return Viewholder(
+            view
+        )
     }
 
     override fun getItemCount(): Int {

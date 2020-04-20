@@ -52,7 +52,7 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-    <!--    <com.leado.ui.achievements.CircularTextView-->
+    <!--    <com.leado.common.views.CircularTextView-->
     <!--        android:id="@+id/circular_textview_rank"-->
     <!--        android:layout_width="wrap_content"-->
     <!--        android:layout_height="wrap_content"-->
@@ -64,7 +64,7 @@
 
     <!--        android:background="@color/colorDark"-->
     <!--        />-->
-    <com.leado.ui.achievements.EqualWidthHeightTextView
+    <com.leado.common.views.EqualWidthHeightTextView
         android:id="@+id/tv_rank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

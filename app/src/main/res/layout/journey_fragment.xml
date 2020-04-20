@@ -9,13 +9,14 @@
         android:id="@+id/journey_rv1"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:background="@color/duck_egg_blue"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/journey_course_item"
         app:spanCount="2"
         tools:itemCount="4"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        android:background="@color/duck_egg_blue"
-        >
+        tools:listitem="@layout/journey_course_item">
 
     </androidx.recyclerview.widget.RecyclerView>
 

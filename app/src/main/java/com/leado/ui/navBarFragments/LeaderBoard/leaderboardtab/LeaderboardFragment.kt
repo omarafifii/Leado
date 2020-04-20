@@ -1,4 +1,4 @@
-package com.leado.ui.achievements
+package com.leado.ui.navBarFragments.LeaderBoard.leaderboardtab
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
+import com.leado.ui.navBarFragments.LeaderBoard.viewpager.LeaderboardViewAdapter
 
 class LeaderboardFragment : Fragment() {
 
@@ -27,7 +28,8 @@ class LeaderboardFragment : Fragment() {
     ): View? {
         val itemView: View = inflater.inflate(R.layout.achievement_fragment, container, false)
         viewManager = LinearLayoutManager(activity)
-        viewAdapter = LeaderboardViewAdapter()
+        viewAdapter =
+            LeaderboardViewAdapter()
         recyclerView = itemView.findViewById(R.id.recycler_achievements)
         recyclerView.adapter = viewAdapter
         recyclerView.layoutManager = viewManager

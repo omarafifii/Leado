@@ -1,9 +1,11 @@
-package com.leado.ui.achievements
+package com.leado.ui.navBarFragments.LeaderBoard.viewpager
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.leado.ui.navBarFragments.LeaderBoard.badgestab.BadgesFragment
+import com.leado.ui.navBarFragments.LeaderBoard.leaderboardtab.LeaderboardFragment
 
 private val TAB_TITLES = arrayOf(
     "Badges",

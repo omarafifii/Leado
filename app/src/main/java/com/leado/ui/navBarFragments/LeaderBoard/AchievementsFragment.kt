@@ -1,4 +1,4 @@
-package com.leado.ui.achievements
+package com.leado.ui.navBarFragments.LeaderBoard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.leado.R
+import com.leado.ui.navBarFragments.LeaderBoard.viewpager.SectionsPagerAdapter
+import kotlinx.android.synthetic.main.achievments_page.*
 
 class AchievementsFragment : Fragment() {
 
@@ -16,16 +18,19 @@ class AchievementsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.achievments_page, container)
+        return inflater.inflate(R.layout.achievments_page, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val sectionsPagerAdapter =
-            SectionsPagerAdapter(this.context!!, this.activity!!.supportFragmentManager)
-        val viewPager: ViewPager = findViewById(R.id.view_pager_achievements)
+            SectionsPagerAdapter(
+                requireContext(),
+                requireActivity().supportFragmentManager
+            )
+        val viewPager: ViewPager = view_pager_achievements
         viewPager.adapter = sectionsPagerAdapter
-        val tabs: TabLayout = findViewById(R.id.tabs)
+        val tabs: TabLayout = tabs
 
 //        tabs.setSelectedTabIndicator()
         tabs.setupWithViewPager(viewPager)

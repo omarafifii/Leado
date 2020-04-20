@@ -1,4 +1,4 @@
-package com.leado.ui.achievements;
+package com.leado.common.views;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -26,39 +26,51 @@ class SignUpActivity : BaseActivity<SignUpViewModel>() {
     override fun getFeatureViewModel(): SignUpViewModel = getViewModel()
 
     override fun useView() {
-        text_input_phoneNumber.requestFocus()
-        text_input_phoneNumber.addTextChangedListener {
-            if (it.toString().isNotEmpty())
-                viewModel.validatePhone(it.toString())
-        }
+//        text_input_phoneNumber.requestFocus()
+//        text_input_phoneNumber.addTextChangedListener {
+//            if (it.toString().isNotEmpty())
+//                viewModel.validatePhone(it.toString())
+//        }
 
         button_signup.setOnClickListener {
-            if (it.toString().isNotEmpty())
-                viewModel.sendCode(
-                    text_input_extension.text.toString() + text_input_phoneNumber.text.toString(),
-                    this@SignUpActivity
-                )
-        }
 
-        viewModel.success.observe(this, Observer{
-            if (it)
-                PhoneVerificationActivity.start(
-                    this@SignUpActivity,
-                    text_input_extension.text.toString() + text_input_phoneNumber.text.toString()
-                )
-        })
-
-        viewModel.singInVerified.observe(this, Observer{
             MainActivity.start(
+                /**
+                 * for testing
+                 **/
                 this@SignUpActivity,
                 Intent.FLAG_ACTIVITY_CLEAR_TOP
                         or Intent.FLAG_ACTIVITY_SINGLE_TOP
                         or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         or Intent.FLAG_ACTIVITY_NEW_TASK
-
             )
-        })
 
+//            if (it.toString().isNotEmpty())
+//                viewModel.sendCode(
+//                    text_input_extension.text.toString() + text_input_phoneNumber.text.toString(),
+//                    this@SignUpActivity
+//                )
+        }
+
+//        viewModel.success.observe(this, Observer{
+//            if (it)
+//                PhoneVerificationActivity.start(
+//                    this@SignUpActivity,
+//                    text_input_extension.text.toString() + text_input_phoneNumber.text.toString()
+//                )
+//        })
+//
+//        viewModel.singInVerified.observe(this, Observer{
+//            MainActivity.start(
+//                this@SignUpActivity,
+//                Intent.FLAG_ACTIVITY_CLEAR_TOP
+//                        or Intent.FLAG_ACTIVITY_SINGLE_TOP
+//                        or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//                        or Intent.FLAG_ACTIVITY_NEW_TASK
+//
+//            )
+//        })
+//
 
     }
 

@@ -36,9 +36,7 @@ class MainActivity : AppCompatActivity() {
         setupBottomNavMenu(navController)
 
     }
-
     private fun setupBottomNavMenu(navController: NavController) = bottom_nav?.setupWithNavController(navController)
-
 
     companion object {
         fun start(context: Context, flags: Int = 0) {
@@ -49,7 +47,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
     /**
      * DEBUG
      * **/
