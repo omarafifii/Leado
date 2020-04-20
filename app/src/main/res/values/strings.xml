@@ -15,4 +15,5 @@
     <string name="verify_hint">Help us Identify you</string>
     <string name="let_s_start_the_journey_together">Let\'s Start the Journey Together</string>
     <string name="instabug_api">API KEY HERE FOR INSTABUG</string>
+    <string name="Log_In"><u>Log In</u></string>
 </resources>
