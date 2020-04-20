@@ -40,15 +40,6 @@ class SignUpActivity : BaseActivity<SignUpViewModel>() {
                 )
         }
 
-//      for testing
-//        test_button.setOnClickListener {
-//            val intent = Intent(this, AchievementsActivity::class.java)
-//            Log.d("sign", "before intent")
-//            startActivity(intent)
-//            Log.e("sign","after intent")
-//        }
-//      end testing
-
         viewModel.success.observe(this, Observer{
             if (it)
                 PhoneVerificationActivity.start(
