@@ -99,7 +99,7 @@
                     app:helperText="@string/verify_hint"
                     app:helperTextEnabled="true"
                     app:hintTextColor="@color/colorAccent"
-                    app:startIconDrawable="@drawable/ic_local_phone">
+                    app:startIconDrawable="@drawable/ic_phone">
 
                 <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/text_input_phoneNumber"
@@ -129,7 +129,7 @@
                     android:layout_gravity="center|end"
                     android:layout_margin="16dp"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+                    android:src="@drawable/ic_arrow_right_white_24"
                     android:translationZ="19dp" />
 
             <com.google.android.material.button.MaterialButton

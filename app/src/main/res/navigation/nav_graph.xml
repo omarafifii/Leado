@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/search_Fragment"
-        android:name="com.leado.ui.navBarFragments.Search.SearchFragment"
+        android:name="com.leado.ui.navBarFragments.search.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/search_fragment"
         />
@@ -23,7 +23,7 @@
         android:id="@+id/leaderBoard_Fragment"
         android:name="com.leado.ui.navBarFragments.LeaderBoard.AchievementsFragment"
         android:label="LeaderBoardFragment"
-        tools:layout="@layout/achievments_page"
+        tools:layout="@layout/achievments_fragment"
         />
     <fragment
         android:id="@+id/profile_Fragment"

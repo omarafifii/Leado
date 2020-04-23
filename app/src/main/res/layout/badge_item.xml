@@ -20,7 +20,7 @@
         android:layout_marginEnd="8dp"
         android:layout_weight="1"
         android:scaleType="centerInside"
-        app:srcCompat="@drawable/ic_quicklearner_icon"
+        app:srcCompat="@drawable/ic_badge_quicklearner"
         />
     <LinearLayout
         android:layout_width="match_parent"

@@ -26,7 +26,7 @@ class LeaderboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val itemView: View = inflater.inflate(R.layout.achievement_fragment, container, false)
+        val itemView: View = inflater.inflate(R.layout.badges_page, container, false)
         viewManager = LinearLayoutManager(activity)
         viewAdapter =
             LeaderboardViewAdapter()

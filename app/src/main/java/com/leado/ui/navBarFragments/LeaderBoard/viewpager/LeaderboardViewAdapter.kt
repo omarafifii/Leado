@@ -49,7 +49,7 @@ class LeaderboardViewAdapter() : RecyclerView.Adapter<LeaderboardViewAdapter.Vie
     }
 
     override fun onBindViewHolder(holder: Viewholder, position: Int) {
-        holder.imageResource.setImageResource(R.drawable.quick_learner)
+        holder.imageResource.setImageResource(R.drawable.ic_badge_quicklearner)
         holder.memberNameTV.text = memberName[position]
         holder.pointsTV.text = points[position]
         holder.rank.text = (position + 1).toString()

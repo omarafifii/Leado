@@ -39,7 +39,7 @@ class BadgesViewAdapter() : RecyclerView.Adapter<BadgesViewAdapter.Viewholder>()
     override fun onBindViewHolder(holder: Viewholder, position: Int) {
         holder.title.text = badgesTitle[position]
         holder.description.setText(badgesDescription[position])
-        holder.imageResource.setImageResource(R.drawable.quick_learner)
+        holder.imageResource.setImageResource(R.drawable.ic_badge_quicklearner)
 
 //
     }

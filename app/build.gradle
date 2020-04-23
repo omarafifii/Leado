@@ -37,9 +37,17 @@ android {
         enabled = true
 
     }
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src/main/res'
+            }
+        }
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
 
 dependencies {
