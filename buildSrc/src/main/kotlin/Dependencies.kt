@@ -25,6 +25,7 @@ object AndroidSdk {
 private object Versions {
     const val stepper: String = "1.0.7"
     const val firebaseCore: String = "16.0.5"
+    const val firestore: String = "21.4.3"
     const val RxFirebaseAuth: String = "16.1.0.0"
     const val firebaseRxCore: String = "16.0.5.0"
     const val circularImage: String = "3.0.1"
@@ -176,7 +177,10 @@ object Firebase {
     val RxAuth = "com.androidhuman.rxfirebase2:firebase-auth:${Versions.RxFirebaseAuth}"
     val RxAuthKotlin = "com.androidhuman.rxfirebase2:firebase-auth-kotlin:${Versions.RxFirebaseAuth}"
     val core = "com.google.firebase:firebase-core:${Versions.firebaseCore}"
+    val store = "com.google.firebase:firebase-firestore-ktx:${Versions.firestore}"
     val RxCore = "com.androidhuman.rxfirebase2:firebase-core:${Versions.firebaseRxCore}"
+
+
 }
 
 

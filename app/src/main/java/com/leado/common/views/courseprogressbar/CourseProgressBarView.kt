@@ -105,7 +105,6 @@ class CourseProgressBarView @JvmOverloads constructor(
     }
 
 
-
     private fun floatToDP(value: Float): Float {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,

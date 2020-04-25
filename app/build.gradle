@@ -9,6 +9,7 @@ apply plugin: Deps.kotlinAndroidExtensions
 apply plugin: Deps.googlePlayServices
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 
 android {
@@ -79,6 +80,7 @@ dependencies {
     implementation Firebase.RxAuth
     implementation Firebase.RxAuthKotlin
     implementation Firebase.core
+    implementation Firebase.store
     implementation Firebase.RxCore
 
     implementation Koin.android
@@ -101,6 +103,7 @@ dependencies {
     testImplementation UnitTests.harmcrest
     testImplementation UnitTests.mockitoInline
     testImplementation UnitTests.arch
+//    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
 
 
 }
