@@ -9,7 +9,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.leado.R
 import com.leado.ui.navBarFragments.LeaderBoard.viewpager.SectionsPagerAdapter
-import kotlinx.android.synthetic.main.achievments_fragment.*
+import kotlinx.android.synthetic.main.fragment_achievments.*
 
 class AchievementsFragment : Fragment() {
 
@@ -18,7 +18,7 @@ class AchievementsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.achievments_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_achievments, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_journey"
-    app:startDestination="@id/journeyActivity"
+    app:startDestination="@id/journey"
     >
 
-    <activity
-        android:id="@+id/journeyActivity"
-        android:name="com.leado.ui.journey.JourneyActivity"
-        android:label="activity_journey"
-        tools:layout="@layout/journey_fragment"/>
+<fragment
+        android:id="@+id/journey"
+        android:name="com.leado.ui.journey.Journey"
+        android:label="Journey"
+        tools:layout="@layout/fragment_journey"
+        />
 
 </navigation>

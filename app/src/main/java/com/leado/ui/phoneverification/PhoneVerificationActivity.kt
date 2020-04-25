@@ -45,14 +45,12 @@ class PhoneVerificationActivity : BaseActivity<VerificationViewModel>() {
                         or FLAG_ACTIVITY_SINGLE_TOP
                         or FLAG_ACTIVITY_CLEAR_TASK
                         or FLAG_ACTIVITY_NEW_TASK
-
             )
         })
         viewModel.codeResent.observe(this, Observer {
             showMessage("Resending code")
         })
     }
-
 
     companion object {
         fun start(context: Context, phoneNumber: String) {
@@ -62,7 +60,6 @@ class PhoneVerificationActivity : BaseActivity<VerificationViewModel>() {
         }
 
         const val PHONE_NUMBER = "phoneNumber"
-
     }
 
     override fun getLoadingView(): View? = progress_loading

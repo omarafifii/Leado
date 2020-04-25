@@ -5,7 +5,6 @@ object Deps {
     object Versions {
         const val gradlePluginVersion = "3.5.2"
     }
-
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.gradlePluginVersion}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     const val androidApplication = "com.android.application"
@@ -14,7 +13,6 @@ object Deps {
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
     const val googlePlayServices= "com.google.gms.google-services"
     const val googleServicesPlugin= "com.google.gms:google-services:4.3.3"
-
 }
 
 object AndroidSdk {

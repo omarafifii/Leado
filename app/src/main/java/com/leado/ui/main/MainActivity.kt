@@ -31,12 +31,14 @@ class MainActivity : AppCompatActivity() {
 //        check for Auth and if user not logged in go back to registration
 //        SignUpActivity.start(this)
 
-
+//
         val navController = findNavController(R.id.nav_host_fragment)
         setupBottomNavMenu(navController)
 
     }
     private fun setupBottomNavMenu(navController: NavController) = bottom_nav?.setupWithNavController(navController)
+
+
 
     companion object {
         fun start(context: Context, flags: Int = 0) {

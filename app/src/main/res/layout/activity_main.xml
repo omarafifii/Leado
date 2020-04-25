@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        app:navGraph="@navigation/nav_graph"
+        app:navGraph="@navigation/main_nav_graph"
         app:defaultNavHost="true"
         android:layout_marginBottom="?attr/actionBarSize"
         />
@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:elevation="4dp"
         android:layout_gravity="bottom"
-        app:menu="@menu/nav_bar_menu"
-        android:background="@color/duck_egg_blue"
+        app:menu="@menu/bottom_nav_menu"
+        android:background="@color/main_background"
         app:itemIconTint="@color/bottomNavColor"
        app:itemTextColor="@color/bottomNavColor"
         />

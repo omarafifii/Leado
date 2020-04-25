@@ -21,7 +21,6 @@ class AuthRepository (
 
     fun verifyPhoneCodeAndSignIn(code: String) = firebaseAuthManager.signInWithPhone(code)
 
-
     fun resendCode(activity: Activity) = firebaseAuthManager.resendCode(activity)
     fun signInVerified() = firebaseAuthManager.signInVerified()
 }

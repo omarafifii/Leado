@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.leado.R
-import kotlinx.android.synthetic.main.congrats_fragment.*
+import kotlinx.android.synthetic.main.fragment_congrats.*
 
 class CongratsFragment : Fragment() {
 
@@ -17,7 +17,7 @@ class CongratsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.congrats_fragment, container)
+        return inflater.inflate(R.layout.fragment_congrats, container)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

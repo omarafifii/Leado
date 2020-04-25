@@ -11,9 +11,9 @@
     <color name="colorTextDisabled">#801F314A</color>
     <color name="colorDisabled">#1A000000</color>
     <color name="colorTransparent">#00FFFFFF</color>
-    <color name="bottomNavColor">@color/bottom_nav_color_selector</color>
-    <color name="duck_egg_blue">#d2fcfa</color>
+    <color name="main_background">#d2fcfa</color>
     <color name="black">#000</color>
     <color name="color_slice_empty">#41050505</color>
+    <color name="bottomNavColor">@color/bottom_nav_color_selector</color>
 
 </resources>

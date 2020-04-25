@@ -1,7 +1,6 @@
 package com.leado.ui.navBarFragments.search
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,13 +9,9 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 
 import com.leado.R
-import kotlinx.android.synthetic.main.search_fragment.*
+import kotlinx.android.synthetic.main.fragment_search.*
 
 class SearchFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = SearchFragment()
-    }
 
     private lateinit var viewModel: SearchViewModel
 
@@ -24,20 +19,13 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.search_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_search, container, false)
     }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
-        // TODO: Use the ViewModel
 
-        courseHeader.courseProgress = 1
 
-        courseHeader.addListener {
-
-            Toast.makeText(context,"Congratulations",Toast.LENGTH_LONG).show()
-        }
 
     }
 
