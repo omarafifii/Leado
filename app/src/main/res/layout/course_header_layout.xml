@@ -3,28 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="130dp"
     android:layout_gravity="center_horizontal"
     android:background="@color/main_background"
     android:paddingTop="16dp">
-
     <ImageView
         android:id="@+id/iv_lessonIcon"
-        android:layout_width="40dp"
-        android:layout_height="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:scaleType="center"
         android:padding="2dp"
-        android:scaleType="fitXY"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_book_shelf_full"
+        tools:src="@drawable/ic_book_shelf_4"
 
         />
 
     <TextView
         android:id="@+id/tv_lessonNum"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
@@ -44,6 +43,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_lessonIcon"
         app:layout_constraintVertical_bias="0.0"
+        android:lines="1"
         />
 
     <LinearLayout
@@ -90,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="103dp" />
+        app:layout_constraintGuide_begin="133dp" />
 
     <View
         android:id="@+id/view"

@@ -7,9 +7,7 @@ apply plugin: Deps.kotlinKapt
 apply plugin: Deps.kotlinAndroidExtensions
 
 apply plugin: Deps.googlePlayServices
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.google.gms.google-services'
+apply plugin: Deps.safeArgs
 
 
 android {
@@ -96,6 +94,15 @@ dependencies {
     // Testing Fragments in Isolation
     debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
 
+    def activity_version = "1.1.0"
+
+    // Java language implementation
+    implementation "androidx.activity:activity:$activity_version"
+    // Kotlin
+    implementation "androidx.activity:activity-ktx:$activity_version"
+
+
+
     implementation Utils.instabug
 
     testImplementation UnitTests.jUnit
@@ -103,7 +110,6 @@ dependencies {
     testImplementation UnitTests.harmcrest
     testImplementation UnitTests.mockitoInline
     testImplementation UnitTests.arch
-//    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
 
 
 }

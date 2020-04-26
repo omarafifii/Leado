@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="250dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -9,18 +9,19 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView2"
+        android:id="@+id/iv_course"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#d2fcfa"
+        android:layout_height="match_parent"
+        android:background="@color/main_background"
         android:padding="16dp"
-        android:scaleType="centerInside"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_course_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_courseTitle"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/round_corner_white"

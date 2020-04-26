@@ -8,7 +8,7 @@
 
 <fragment
         android:id="@+id/journey"
-        android:name="com.leado.ui.journey.Journey"
+        android:name="com.leado.ui.journey.JourneyFragment"
         android:label="Journey"
         tools:layout="@layout/fragment_journey"
         />

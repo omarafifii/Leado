@@ -1,5 +1,5 @@
 package com.leado.model
 
-data class Lesson(val name: String, val link: String, val description: String, val icon: String) {
+data class Lesson(var name: String = "",var Id:Int = 0 , var link: String = "", var description: String = "", var icon: Int = 0) {
 
 }

@@ -30,8 +30,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     val TAG = this.javaClass.simpleName
 
-//    val db = FirebaseFirestore.getInstance()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,28 +38,8 @@ class MainActivity : AppCompatActivity() {
 //        check for Auth and if user not logged in go back to registration
 //        SignUpActivity.start(this)
 
-//
-//        val user = hashMapOf(
-//            "first" to "Ada",
-//            "last" to "Lovelace",
-//            "born" to 1815
-//        )
-//// Add a new document with a generated ID
-//        db.collection("users")
-//            .add(user)
-//            .addOnSuccessListener { documentReference ->
-//                Log.e("Firestore", "DocumentSnapshot added with ID: ${documentReference.id}")
-//            }
-//            .addOnFailureListener { e ->
-//                Log.e("Firestore", "Error adding document", e)
-//            }
-
-
         val navController = findNavController(R.id.nav_host_fragment)
         setupBottomNavMenu(navController)
-
-
-
 
 
     }
@@ -69,7 +47,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
 
     }
     companion object {
