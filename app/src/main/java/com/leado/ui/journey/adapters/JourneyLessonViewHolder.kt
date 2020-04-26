@@ -11,7 +11,7 @@ fun bind(currentLesson: Lesson){
 
     itemView.apply {
 
-        tv_lessonTitle.text = currentLesson.name
+        tv_lessonTitle.text = currentLesson.title
         tv_lessonNum.text = "Lesson ${currentLesson.Id}"
         tv_lessonDesc.text = currentLesson.description
 

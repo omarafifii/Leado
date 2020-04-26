@@ -1,7 +1,25 @@
 package com.leado.model
 
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+
 data class User(
-    val id: String, val name: String, val image: String, val points: Int,
-    val Rank: Int, val badges: List<Badge>, val lessons: Map<String, Int>
+    var id: String="",
+    var name: String="",
+    var image: String="",
+    var points: Int=0,
+    var Rank: Int=0,
+    var badges: List<Badge>?=null,
+    var lessonsById: Map<String, String>?=null
 ) {
+    fun createCollection(db:FirebaseFirestore,username: String){
+val user = User()
+        user.name=username
+
+        db.collection("Users").document(user.name).set(user)
+
+    }
+
+
 }

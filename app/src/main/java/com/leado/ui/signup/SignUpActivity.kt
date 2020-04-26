@@ -13,8 +13,10 @@ import android.content.Intent
 import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
+import com.google.firebase.firestore.FirebaseFirestore
 import com.leado.R
 import com.leado.common.base.BaseActivity
+import com.leado.model.*
 import com.leado.ui.main.MainActivity
 import com.leado.ui.phoneverification.PhoneVerificationActivity
 import kotlinx.android.synthetic.main.activity_signup.*
@@ -26,14 +28,12 @@ class SignUpActivity : BaseActivity<SignUpViewModel>() {
     override fun getLayoutResource(): Int = R.layout.fragment_onboarding
 
     override fun getFeatureViewModel(): SignUpViewModel = getViewModel()
+val db = FirebaseFirestore.getInstance()
 
     override fun useView() {
-//        text_input_phoneNumber.requestFocus()
-//        text_input_phoneNumber.addTextChangedListener {
-//            if (it.toString().isNotEmpty())
-//                viewModel.validatePhone(it.toString())
-//        }
+
         bt_GetStarted.setOnClickListener {
+
 
             MainActivity.start(
                 /**
@@ -46,6 +46,12 @@ class SignUpActivity : BaseActivity<SignUpViewModel>() {
                         or Intent.FLAG_ACTIVITY_NEW_TASK
             )
         }
+
+        //        text_input_phoneNumber.requestFocus()
+//        text_input_phoneNumber.addTextChangedListener {
+//            if (it.toString().isNotEmpty())
+//                viewModel.validatePhone(it.toString())
+//        }
 //        button_signup.setOnClickListener {
 //
 //            MainActivity.start(

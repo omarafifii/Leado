@@ -1,4 +1,4 @@
-package com.leado.ui.navBarFragments.LeaderBoard.leaderboardtab
+package com.leado.ui.main.navBarFragments.LeaderBoard.badgestab
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
-import com.leado.ui.navBarFragments.LeaderBoard.viewpager.LeaderboardViewAdapter
+import com.leado.ui.main.navBarFragments.LeaderBoard.viewpager.BadgesViewAdapter
 
-class LeaderboardFragment : Fragment() {
+class BadgesFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
@@ -18,7 +18,6 @@ class LeaderboardFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -29,11 +28,12 @@ class LeaderboardFragment : Fragment() {
         val itemView: View = inflater.inflate(R.layout.badges_page, container, false)
         viewManager = LinearLayoutManager(activity)
         viewAdapter =
-            LeaderboardViewAdapter()
+            BadgesViewAdapter()
         recyclerView = itemView.findViewById(R.id.recycler_achievements)
         recyclerView.adapter = viewAdapter
         recyclerView.layoutManager = viewManager
         return itemView
-
     }
+
+
 }

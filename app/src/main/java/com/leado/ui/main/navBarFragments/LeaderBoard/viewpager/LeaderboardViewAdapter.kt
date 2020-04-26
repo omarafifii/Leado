@@ -1,4 +1,4 @@
-package com.leado.ui.navBarFragments.LeaderBoard.viewpager
+package com.leado.ui.main.navBarFragments.LeaderBoard.viewpager
 
 import android.graphics.Color
 import android.view.LayoutInflater

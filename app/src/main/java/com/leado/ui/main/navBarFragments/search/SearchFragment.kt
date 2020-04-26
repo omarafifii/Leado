@@ -1,4 +1,4 @@
-package com.leado.ui.navBarFragments.search
+package com.leado.ui.main.navBarFragments.search
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

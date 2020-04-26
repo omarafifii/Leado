@@ -1,4 +1,4 @@
-package com.leado.ui.navBarFragments.Profile
+package com.leado.ui.main.navBarFragments.Profile
 
 import androidx.lifecycle.ViewModel
 

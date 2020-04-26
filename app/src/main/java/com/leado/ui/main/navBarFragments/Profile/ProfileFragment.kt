@@ -1,4 +1,4 @@
-package com.leado.ui.navBarFragments.Profile
+package com.leado.ui.main.navBarFragments.Profile
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -12,7 +12,8 @@ import com.leado.R
 class ProfileFragment : Fragment() {
 
     companion object {
-        fun newInstance() = ProfileFragment()
+        fun newInstance() =
+            ProfileFragment()
     }
 
     private lateinit var viewModel: ProfileViewModel

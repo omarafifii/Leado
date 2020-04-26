@@ -1,4 +1,4 @@
-package com.leado.ui.navBarFragments.LeaderBoard
+package com.leado.ui.main.navBarFragments.LeaderBoard
 
 import androidx.lifecycle.ViewModel
 

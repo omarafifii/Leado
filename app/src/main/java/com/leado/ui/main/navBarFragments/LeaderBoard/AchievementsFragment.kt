@@ -1,4 +1,4 @@
-package com.leado.ui.navBarFragments.LeaderBoard
+package com.leado.ui.main.navBarFragments.LeaderBoard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.leado.R
-import com.leado.ui.navBarFragments.LeaderBoard.viewpager.SectionsPagerAdapter
+import com.leado.ui.main.navBarFragments.LeaderBoard.viewpager.SectionsPagerAdapter
 import kotlinx.android.synthetic.main.fragment_achievments.*
 
 class AchievementsFragment : Fragment() {
@@ -35,4 +35,5 @@ class AchievementsFragment : Fragment() {
 //        tabs.setSelectedTabIndicator()
         tabs.setupWithViewPager(viewPager)
     }
+
 }

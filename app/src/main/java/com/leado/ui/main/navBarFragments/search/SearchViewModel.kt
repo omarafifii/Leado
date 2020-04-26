@@ -1,4 +1,4 @@
-package com.leado.ui.navBarFragments.search
+package com.leado.ui.main.navBarFragments.search
 
 import androidx.lifecycle.ViewModel
 

@@ -1,4 +1,4 @@
-package com.leado.ui.navBarFragments.Home
+package com.leado.ui.main.navBarFragments.Home
 
 import androidx.lifecycle.ViewModel
 import com.leado.R
@@ -13,6 +13,7 @@ class HomeScrollViewModel : ViewModel() {
         R.drawable.ic_course_3)
 
     var pathList = mutableListOf<Path>()
+
 
     init{
       pathList.apply {

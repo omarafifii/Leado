@@ -1,4 +1,4 @@
-package com.leado.ui.navBarFragments.Home.adapters
+package com.leado.ui.main.navBarFragments.Home.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

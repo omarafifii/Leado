@@ -24,11 +24,11 @@ var pathtitle = ""
 
         lessonList.apply {
 
-            add(Lesson(name = "Lesson 1",Id = 1,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
-            add(Lesson(name = "Lesson 2",Id = 2,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
-            add(Lesson(name = "Lesson 3",Id = 3,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
-            add(Lesson(name = "Lesson 4",Id = 4,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
-            add(Lesson(name = "Lesson 5",Id = 5,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
+            add(Lesson(title = "Lesson 1",Id = 1,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
+            add(Lesson(title = "Lesson 2",Id = 2,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
+            add(Lesson(title = "Lesson 3",Id = 3,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
+            add(Lesson(title = "Lesson 4",Id = 4,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
+            add(Lesson(title = "Lesson 5",Id = 5,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
 
         }
 
