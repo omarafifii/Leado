@@ -34,7 +34,7 @@ val db = FirebaseFirestore.getInstance()
 
         bt_GetStarted.setOnClickListener {
 
-
+//UploadData.fastEdit(db)
             MainActivity.start(
                 /**
                  * for testing

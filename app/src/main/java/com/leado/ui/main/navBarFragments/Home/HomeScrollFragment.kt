@@ -2,6 +2,7 @@ package com.leado.ui.main.navBarFragments.Home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,8 +25,14 @@ class HomeScrollFragment : Fragment(R.layout.fragment_home_scrolled) {
 
         model = ViewModelProvider(this).get(HomeScrollViewModel::class.java)
 
+        model.liveCourseByList.observe(viewLifecycleOwner, Observer { courseList->
+            model.courseByList = courseList
+            homeAdapter.courseList =  model.courseByList
+            homeAdapter.notifyDataSetChanged()
+        })
+
         homeAdapter = HomeScrollAdapter()
-        homeAdapter.patheList = model.pathList
+        homeAdapter.courseList = model.courseByList
         rv_homeScroll_courses.apply {
             adapter = homeAdapter
             setHasFixedSize(true)

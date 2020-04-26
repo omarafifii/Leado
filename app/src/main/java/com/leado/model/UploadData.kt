@@ -8,6 +8,50 @@ class UploadData() {
 
 
     companion object {
+        fun createUserCollection(db: FirebaseFirestore) {
+            val user = User("User_1")
+
+
+//            db.collection("Users").document(user.name).set(user)
+//            db.collection("Users").document(user.name).update(mapOf("lessonsById.lesson_1" to "0")) //Update fields in nested objects
+
+
+        }
+
+        fun fastEdit(db: FirebaseFirestore) {
+
+            listOf(
+                Lesson(
+                    "Lesson 1",
+                    id = 0,
+                    description = "Building an integral support system,Pushes you to grow, strech more, mainly asks why things wont work, and bullet proofs ideas"
+                ),
+                Lesson(
+                    "Lesson 2",
+                    id = 1,
+                    description = "Building an integral support system,Pushes you to grow, strech more, mainly asks why things wont work, and bullet proofs ideas"
+                ),
+                Lesson(
+                    "Lesson 3",
+                    id = 2,
+                    description = "Building an integral support system,Pushes you to grow, strech more, mainly asks why things wont work, and bullet proofs ideas"
+                ),
+                Lesson(
+                    "Lesson 4",
+                    id = 3,
+                    description = "Building an integral support system,Pushes you to grow, strech more, mainly asks why things wont work, and bullet proofs ideas"
+                ),
+                Lesson(
+                    "Lesson 5",
+                    id = 4,
+                    description = "Building an integral support system,Pushes you to grow, strech more, mainly asks why things wont work, and bullet proofs ideas"
+                )
+            ).forEach {
+                db.collection("Lessons").document().set(it)
+//                    .update(mapOf("description" to "Building an integral support system,Pushes you to grow, strech more, mainly asks why things wont work, and bullet proofs ideas"))
+            }
+
+        }
 
         fun createLessonCollection(db: FirebaseFirestore) {
             val lessonmap1 = hashMapOf(
@@ -25,6 +69,7 @@ class UploadData() {
                 "id" to "2"
                 , "link" to ""
                 , "icon" to ""
+
             )
             val lessonmap3 = hashMapOf(
                 "title" to "",
@@ -35,10 +80,10 @@ class UploadData() {
                 , "icon" to ""
             )
             val lessonmap4 = hashMapOf(
-                "title" to "",
-                "description" to "Building an integral support system,\n" +
-                        "Pushes you to grow, strech more, mainly asks why things wont work, and bullet proofs ideas",
-                "id" to "4"
+                "title" to ""
+                , "description" to "Building an integral support system,\n" +
+                        "Pushes you to grow, strech more, mainly asks why things wont work, and bullet proofs ideas"
+                , "id" to "4"
                 , "link" to ""
                 , "icon" to ""
             )
@@ -64,7 +109,8 @@ class UploadData() {
 
                 val lessontitle = lesson["title"]
                 db.collection("Lessons").document(lessontitle!!).set(lesson)
-
+                //subCollection
+//                db.collection("Users").document("User_1").collection("User_Lessons").document(lessontitle!!).set(lesson)
             }
 
         }
@@ -110,6 +156,7 @@ class UploadData() {
             }
 
         }
+
         fun createPathCollection(db: FirebaseFirestore, title: String) {
             val path_1 = Path()
             val path_2 = Path()

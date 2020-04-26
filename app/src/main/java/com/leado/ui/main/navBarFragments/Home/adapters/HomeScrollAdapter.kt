@@ -4,16 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
+import com.leado.model.Course
 import com.leado.model.Path
 
 class HomeScrollAdapter():RecyclerView.Adapter<HomeScrollViewHolder>() {
 
 
-    var patheList = mutableListOf<Path>()
-set(value) {
-    field.clear()
-    field.addAll(value)
-}
+    var courseList = mutableListOf<Course>()
+        set(value) {
+            field.clear()
+            field = value
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeScrollViewHolder {
     val inflater = LayoutInflater.from(parent.context)
@@ -22,12 +23,12 @@ return HomeScrollViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: HomeScrollViewHolder, position: Int) {
-        var currentPath = patheList[position]
-        holder.bind(currentPath)
+        var currentCourse = courseList[position]
+        holder.bind(currentCourse)
     }
 
     override fun getItemCount(): Int {
 
-        return patheList.size
+        return courseList.size
     }
 }

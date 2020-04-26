@@ -14,6 +14,10 @@
     <color name="main_background">#d2fcfa</color>
     <color name="black">#000</color>
     <color name="color_slice_empty">#41050505</color>
+    <color name="bt_Lesson_active">#22D0C4</color>
+    <color name="bt_lesson_notActive">#16000000</color>
     <color name="bottomNavColor">@color/bottom_nav_color_selector</color>
+    #16000000
+
 
 </resources>

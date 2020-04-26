@@ -4,10 +4,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 data class Lesson(
     var title: String = "",
-    var Id: Int = 0,
-    var link: String = "",
+    var id: Int = 0,
     var description: String = "",
-    var icon: Int = 0
+    var link: String = "",
+    var icon: Int = 0,
+    var isActive:Boolean = false
 ) {
 
 

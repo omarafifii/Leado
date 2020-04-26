@@ -7,6 +7,7 @@ import com.leado.R
 import com.leado.model.Lesson
 
 class JourneyLessonAdapter : RecyclerView.Adapter<JourneyLessonViewHolder>() {
+
     var lessonList = mutableListOf<Lesson>()
         set(value) {
             field.clear()
@@ -23,7 +24,10 @@ class JourneyLessonAdapter : RecyclerView.Adapter<JourneyLessonViewHolder>() {
 
     override fun onBindViewHolder(holder: JourneyLessonViewHolder, position: Int) {
         val currentLesson = lessonList[position]
-holder.bind(currentLesson)
+        if (position == 0) {
+            currentLesson.isActive = true
+        }
+        holder.bind(currentLesson)
     }
 
     override fun getItemCount(): Int {
