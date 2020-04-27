@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.Source
 import com.leado.model.Course
 
@@ -27,10 +28,9 @@ object CourseRepo {
     private val courseByList = mutableListOf<Course>()
     fun getCourseByList(): MutableLiveData<MutableList<Course>> {
         val liveCourseByList = MutableLiveData<MutableList<Course>>()
-        db.collection(COURSE_COLECTION)
+        db.collection(COURSE_COLECTION).orderBy("id",Query.Direction.ASCENDING)
             .get(defaultSource)
             .addOnSuccessListener {
-
                 if (it.documents.isNotEmpty()) {
                     courseByList.clear()
                     it.documents.forEach {

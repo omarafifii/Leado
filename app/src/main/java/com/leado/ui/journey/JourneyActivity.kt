@@ -9,8 +9,7 @@ import com.leado.R
 
 class JourneyActivity : AppCompatActivity() {
 
-    val args : JourneyActivityArgs by navArgs()
-
+//
     val journeyViewModel : JourneyViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,9 +17,6 @@ class JourneyActivity : AppCompatActivity() {
         setContentView(R.layout.activity_journey)
 
 
-
-        var coursetitle = args.courseTitle
-        journeyViewModel.coursetitle = coursetitle
 
         val navController = findNavController(R.id.journey_nav_host_fragment)
 

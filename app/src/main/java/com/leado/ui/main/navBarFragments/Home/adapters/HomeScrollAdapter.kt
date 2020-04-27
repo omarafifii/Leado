@@ -14,6 +14,7 @@ class HomeScrollAdapter():RecyclerView.Adapter<HomeScrollViewHolder>() {
         set(value) {
             field.clear()
             field = value
+            notifyDataSetChanged()
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeScrollViewHolder {

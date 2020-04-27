@@ -1,6 +1,7 @@
 package com.leado.ui.main.navBarFragments.Home.adapters
 
 import android.view.View
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
@@ -17,12 +18,10 @@ class HomeScrollViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             itemView.iv_course.setImageResource(icon) //icons assigned in viewModel
             itemView.bt_courseTitle.text = title
         }
+
         itemView.bt_courseTitle.setOnClickListener{
 
-            val action =
-                HomeScrollFragmentDirections.actionHomeFragmentToJourneyActivity(
-                    currentCourse.title
-                )
+            val action=HomeScrollFragmentDirections.actionHomeFragmentToJourney(currentCourse.title)
             it.findNavController().navigate(action)
         }
     }
