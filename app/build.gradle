@@ -52,14 +52,12 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation JetPack.kotlinStdLib
     implementation JetPack.appCompat
     implementation JetPack.ktxCore
     implementation JetPack.constraintLayout
-
     implementation UI.material
-
     implementation Lifecycle.lifecycleKtx
     implementation Lifecycle.livedata
     implementation Lifecycle.viewmodel
@@ -70,11 +68,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     kapt Lifecycle.lifecycleCompiler
-
     implementation RxJava.java
     implementation RxJava.android
     implementation RxJava.relay
-
     implementation Firebase.analytics
     implementation Firebase.auth
     implementation Firebase.RxAuth
@@ -82,11 +78,9 @@ dependencies {
     implementation Firebase.core
     implementation Firebase.store
     implementation Firebase.RxCore
-
     implementation Koin.android
     implementation Koin.androidViewmodel
     implementation Koin.androidScope
-
     //Fragment
     def fragment_version = "1.2.4"
     // Kotlin
@@ -95,15 +89,12 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
     // Testing Fragments in Isolation
     debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
-
     implementation Utils.instabug
-
     testImplementation UnitTests.jUnit
     testImplementation UnitTests.mockito
     testImplementation UnitTests.harmcrest
     testImplementation UnitTests.mockitoInline
     testImplementation UnitTests.arch
-//    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
-
-
+    //    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
 }
