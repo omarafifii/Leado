@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+	</data>
+
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="32dp"
+			android:layout_marginRight="32dp"
+			android:layout_gravity="center"
+			android:orientation="vertical"
+			android:padding="16dp"
+			android:gravity="center_horizontal"
+			android:background="@drawable/background_dotted"
+			>
+
+			<TextView
+				android:id="@+id/tvEmptyState_title"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text="No Badges yet!, Sorry"
+				android:textColor="@color/colorTextDark"
+				android:textSize="18sp"
+				android:layout_weight="1"
+				tools:ignore="MissingPrefix" />
+
+			<TextView
+				android:id="@+id/tvEmptyState_description"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:lineSpacingMultiplier="1.16959"
+				android:gravity="center"
+				android:layout_marginTop="8dp"
+				android:text="Start your Journey and earn Badges Now"
+				android:textColor="@color/colorTextDark"
+				android:textSize="16sp"
+				tools:ignore="MissingPrefix" />
+			<androidx.appcompat.widget.AppCompatButton
+				android:id="@+id/btnEmptyState_action"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="0dp"
+				android:layout_marginTop="16dp"
+				android:layout_marginRight="0dp"
+				android:layout_marginBottom="16dp"
+				android:paddingLeft="16dp"
+				android:paddingRight="16dp"
+				android:background="@drawable/curved_button_green"
+				android:text="Star Journey !"
+				android:textAllCaps="false"
+				android:textColor="@color/colorWhite"
+				android:textSize="18sp"
+				/>
+
+		</LinearLayout>
+
+</layout>

@@ -42,7 +42,6 @@ class CourseHeaderLayout @JvmOverloads constructor(
             tv_lessonNum.visibility = View.VISIBLE
             field = value
         }
-
     var lessonTitle = ""
         set(value) {
             tv_lessonTitle.text = value
