@@ -10,6 +10,7 @@ import com.leado.R
 import kotlinx.android.synthetic.main.activity_lesson.*
 
 class LessonActivity : YouTubeBaseActivity() , YouTubePlayer.OnInitializedListener {
+
     val  args : LessonActivityArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,13 +32,12 @@ courseHeader?.courseProgress = lesson.id
         p1: YouTubePlayer?,
         p2: Boolean
     ) {
-        p1?.loadVideo("9YlRIvdokMg")
+        p1?.loadVideo("o7d5Zeic63s")
     }
-
     override fun onInitializationFailure(
         p0: YouTubePlayer.Provider?,
         p1: YouTubeInitializationResult?
     ) {
-        TODO("Not yet implemented")
+
     }
 }

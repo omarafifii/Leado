@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "860026273220",
+    "firebase_url": "https://leado3.firebaseio.com",
+    "project_id": "leado3",
+    "storage_bucket": "leado3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860026273220:android:248e7b946280c098c07891",
+        "android_client_info": {
+          "package_name": "com.leado"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860026273220-2qjjmubhl319sgj34r9f3hpd26600q0k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz9tJ8UC3fkxpwqV9NDwp1hKY3aAC3jAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860026273220-2qjjmubhl319sgj34r9f3hpd26600q0k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
