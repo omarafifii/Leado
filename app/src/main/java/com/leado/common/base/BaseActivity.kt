@@ -49,7 +49,6 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
             .show()
     }
 
-
     fun renderLoading(isLoading: Boolean) {
         if (isLoading)
             getLoadingView()?.show()

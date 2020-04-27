@@ -1,11 +1,13 @@
+import Deps.Versions.nav_version
+
 const val kotlinVersion = "1.3.50"
 
 object Deps {
 
     object Versions {
         const val gradlePluginVersion = "3.5.2"
+        const val nav_version = "2.3.0-alpha05"
     }
-
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.gradlePluginVersion}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     const val androidApplication = "com.android.application"
@@ -14,6 +16,8 @@ object Deps {
     const val kotlinAndroidExtensions = "kotlin-android-extensions"
     const val googlePlayServices= "com.google.gms.google-services"
     const val googleServicesPlugin= "com.google.gms:google-services:4.3.3"
+const val safeArgs = "androidx.navigation.safeargs"
+const val safeArgsClassPath = "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
 
 }
 
@@ -27,6 +31,8 @@ object AndroidSdk {
 private object Versions {
     const val stepper: String = "1.0.7"
     const val firebaseCore: String = "16.0.5"
+    const val fireStore: String = "21.4.3"
+    const val firebaseAuth = "19.3.0"
     const val RxFirebaseAuth: String = "16.1.0.0"
     const val firebaseRxCore: String = "16.0.5.0"
     const val circularImage: String = "3.0.1"
@@ -34,7 +40,6 @@ private object Versions {
     const val firebaseAnalytics = "16.0.5"
     const val firebaseCrashlytics = "2.10.1"
     const val firebaseStorage = "16.0.1"
-    const val firebaseAuth = "19.3.0"
     const val rxandroid = "2.1.1"
     const val dagger = "2.25.2"
     const val dexmaker = "2.12.1"
@@ -67,6 +72,7 @@ object JetPack {
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val ktxCore = "androidx.core:core-ktx:${Versions.jetpack}"
+    const val safeArgs = ""
 
 }
 
@@ -178,7 +184,10 @@ object Firebase {
     val RxAuth = "com.androidhuman.rxfirebase2:firebase-auth:${Versions.RxFirebaseAuth}"
     val RxAuthKotlin = "com.androidhuman.rxfirebase2:firebase-auth-kotlin:${Versions.RxFirebaseAuth}"
     val core = "com.google.firebase:firebase-core:${Versions.firebaseCore}"
+    val store = "com.google.firebase:firebase-firestore-ktx:${Versions.fireStore}"
     val RxCore = "com.androidhuman.rxfirebase2:firebase-core:${Versions.firebaseRxCore}"
+
+
 }
 
 

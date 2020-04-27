@@ -7,8 +7,7 @@ apply plugin: Deps.kotlinKapt
 apply plugin: Deps.kotlinAndroidExtensions
 
 apply plugin: Deps.googlePlayServices
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: Deps.safeArgs
 
 
 android {
@@ -37,9 +36,17 @@ android {
         enabled = true
 
     }
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src/main/res'
+            }
+        }
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
 
 dependencies {
@@ -71,6 +78,7 @@ dependencies {
     implementation Firebase.RxAuth
     implementation Firebase.RxAuthKotlin
     implementation Firebase.core
+    implementation Firebase.store
     implementation Firebase.RxCore
 
     implementation Koin.android
@@ -79,12 +87,23 @@ dependencies {
 
     //Fragment
     def fragment_version = "1.2.4"
-    // Kotlin
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
     implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
-    // Testing Fragments in Isolation
-    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version" // Testing Fragments in Isolation
+
+    def activity_version = "1.1.0"
+    // Kotlin
+    implementation "androidx.activity:activity-ktx:$activity_version"
+
+// LiveData & ViewModel
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"// ViewModel
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"  // LiveData
+//circled image
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 
     implementation Utils.instabug
 
@@ -93,6 +112,7 @@ dependencies {
     testImplementation UnitTests.harmcrest
     testImplementation UnitTests.mockitoInline
     testImplementation UnitTests.arch
-
+//youtube api
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
 
 }

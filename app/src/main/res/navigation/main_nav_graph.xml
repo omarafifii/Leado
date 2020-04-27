@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home_Fragment">
+    <fragment
+        android:id="@+id/home_Fragment"
+        android:name="com.leado.ui.main.navBarFragments.Home.HomeScrollFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home_scrolled">
+        <action
+            android:id="@+id/action_home_Fragment_to_journey"
+            app:destination="@id/journey" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/search_Fragment"
+        android:name="com.leado.ui.main.navBarFragments.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search"
+        />
+    <fragment
+        android:id="@+id/leaderBoard_Fragment"
+        android:name="com.leado.ui.main.navBarFragments.LeaderBoard.AchievementsFragment"
+        android:label="LeaderBoardFragment"
+        tools:layout="@layout/fragment_achievments"
+        />
+    <fragment
+        android:id="@+id/profile_Fragment"
+        android:name="com.leado.ui.main.navBarFragments.Profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"
+        />
+
+    <fragment
+        android:id="@+id/journey"
+        android:name="com.leado.ui.journey.JourneyFragment"
+        android:label="Journey"
+        tools:layout="@layout/fragment_journey"
+        >
+        <action
+            android:id="@+id/action_journey_to_lessonActivity"
+            app:destination="@id/lessonActivity" />
+        <argument
+            android:name="coursetitle"
+            app:argType="string" />
+    </fragment>
+
+    <activity
+        android:id="@+id/lessonActivity"
+        android:name="com.leado.ui.lesson.LessonActivity"
+        android:label="activity_lesson"
+        tools:layout="@layout/activity_lesson" >
+        <argument
+            android:name="lesson"
+            app:argType="com.leado.model.Lesson" />
+    </activity>
+</navigation>

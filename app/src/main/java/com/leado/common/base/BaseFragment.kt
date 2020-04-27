@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import com.leado.common.extensions.gone
 import com.leado.common.extensions.show
-
 import org.koin.android.viewmodel.ext.android.viewModel
 
 abstract class BaseFragment< T : BaseViewModel> : Fragment() {
