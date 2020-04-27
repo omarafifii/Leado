@@ -16,11 +16,11 @@ import kotlinx.android.synthetic.main.fragment_journey.*
  */
 class JourneyFragment : Fragment(R.layout.fragment_journey) {
 
-    lateinit var model:JourneyViewModel
+    lateinit var model: JourneyViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-         model = ViewModelProvider(requireActivity()).get(JourneyViewModel::class.java)
+        model = ViewModelProvider(requireActivity()).get(JourneyViewModel::class.java)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -29,26 +29,24 @@ class JourneyFragment : Fragment(R.layout.fragment_journey) {
         val gridLessonAdapter = JourneyGridLessonAdapter()
         val journeyLessonAdapter = JourneyLessonAdapter()
 
-        gridLessonAdapter.gridLessonList =  model.lessonByList
-        model.liveLessonByList.observe(viewLifecycleOwner, Observer { lessonList->
+        gridLessonAdapter.gridLessonList = model.lessonByList
+        model.liveLessonByList.observe(viewLifecycleOwner, Observer { lessonList ->
             model.lessonByList = lessonList
             gridLessonAdapter.gridLessonList = model.lessonByList
-            gridLessonAdapter.notifyDataSetChanged()
+
+            journeyLessonAdapter.lessonList = model.lessonByList
         })
 
-        journeyLessonAdapter.lessonList = model.lessons
-            rv_grid_lesson.adapter = gridLessonAdapter
-            rv_h_lesson.adapter = journeyLessonAdapter
+        journeyLessonAdapter.lessonList = model.lessonByList
+        rv_grid_lesson.adapter = gridLessonAdapter
+        rv_h_lesson.adapter = journeyLessonAdapter
 
-        requireActivity().courseHeader.courseProgress =1
-
-//        model.pathtitle?.apply {
-//            requireActivity().courseHeader.tv_lessonTitle.text = this
-//            tv_courseTitle.text =  this
-//        }
+        tv_courseTitle.text=model.coursetitle
+        requireActivity().courseHeader.courseProgress = 1
 
 
     }
+
     override fun onResume() {
         super.onResume()
 

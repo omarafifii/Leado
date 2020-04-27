@@ -4,13 +4,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
 import com.leado.R
+import com.leado.common.base.BaseViewModel
 import com.leado.model.Course
 import com.leado.model.Lesson
 import com.leado.repos.LessonRepo
 
 class JourneyViewModel : ViewModel() {
  
-    var pathtitle = ""
+    var coursetitle = ""
     private val lessonRepo = LessonRepo
     private val icon= listOf(
         R.drawable.ic_book_shelf_1,

@@ -12,6 +12,7 @@ class JourneyLessonAdapter : RecyclerView.Adapter<JourneyLessonViewHolder>() {
         set(value) {
             field.clear()
             field = value
+            notifyDataSetChanged()
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JourneyLessonViewHolder {

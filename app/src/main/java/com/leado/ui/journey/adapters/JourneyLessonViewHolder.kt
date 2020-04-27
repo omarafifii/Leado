@@ -10,7 +10,7 @@ class JourneyLessonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
 fun bind(currentLesson: Lesson){
     itemView.apply {
         tv_lessonTitle.text = currentLesson.title
-        tv_lessonNum.text = "Lesson ${currentLesson.id}"
+        tv_lessonNum.text = "Lesson ${++currentLesson.id}"
         tv_lessonDesc.text = currentLesson.description
         if (currentLesson.isActive) {
             bt_startLesson.text = "Start"

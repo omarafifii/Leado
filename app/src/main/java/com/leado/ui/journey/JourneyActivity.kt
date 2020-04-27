@@ -20,7 +20,7 @@ class JourneyActivity : AppCompatActivity() {
 
 
         var coursetitle = args.courseTitle
-        journeyViewModel.pathtitle = coursetitle
+        journeyViewModel.coursetitle = coursetitle
 
         val navController = findNavController(R.id.journey_nav_host_fragment)
 
