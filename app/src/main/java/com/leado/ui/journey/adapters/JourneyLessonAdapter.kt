@@ -5,8 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
 import com.leado.model.Lesson
+import com.leado.common.OnLessonClickListener
 
-class JourneyLessonAdapter : RecyclerView.Adapter<JourneyLessonViewHolder>() {
+class JourneyLessonAdapter(
+    /**interface OnLessonClickListener**/
+    val lessonClickListener: OnLessonClickListener
+) : RecyclerView.Adapter<JourneyLessonViewHolder>() {
+
+    private var lessonListener : ((Lesson)-> Unit)?=null
+    fun addLessonListener(listener:(Lesson)-> Unit){
+        lessonListener = listener
+    }
 
     var lessonList = mutableListOf<Lesson>()
         set(value) {
@@ -19,22 +28,19 @@ class JourneyLessonAdapter : RecyclerView.Adapter<JourneyLessonViewHolder>() {
         val inflater = LayoutInflater.from(parent.context)
 
         val view = inflater.inflate(R.layout.journey_lesson_item, parent, false)
-
         return JourneyLessonViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: JourneyLessonViewHolder, position: Int) {
         val currentLesson = lessonList[position]
-        if (position == 0) {
+        if (position == 0 && !currentLesson.isActive) {
             currentLesson.isActive = true
         }
-        holder.bind(currentLesson)
+        holder.bind(currentLesson,lessonClickListener,lessonListener)
     }
 
-    override fun getItemCount(): Int {
+    override fun getItemCount(): Int = lessonList.size
 
-        return lessonList.size
-    }
 
 
 }

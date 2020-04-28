@@ -18,7 +18,7 @@ class JourneyActivity : AppCompatActivity() {
 
 
 
-        val navController = findNavController(R.id.journey_nav_host_fragment)
+        findNavController(R.id.journey_nav_host_fragment)
 
 
 

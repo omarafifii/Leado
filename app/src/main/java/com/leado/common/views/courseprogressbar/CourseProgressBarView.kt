@@ -17,9 +17,8 @@ class CourseProgressBarView @JvmOverloads constructor(
     defStyleRes: Int = android.R.style.Widget_ProgressBar_Horizontal
 ) : View(context, attrs, defStyleAttr, defStyleRes) {
 
-    var progress: Int = 0
+    private var progress: Int = 0
     private var max: Int = 5
-
     private var sliceWidth = floatToDP(24f).toInt()      //24dp
     private var sliceHeight = floatToDP(8f).toInt()      //8dp
     private var halfSliceWidth = floatToDP(8f).toInt()   //8dp
@@ -48,6 +47,8 @@ class CourseProgressBarView @JvmOverloads constructor(
     init {
         setPadding(paddingLeft + floatToDP(16f).toInt(), paddingTop, paddingRight, paddingBottom)
         this.sliceDrawable = ContextCompat.getDrawable(context, R.drawable.ic_progress_bar_slice)
+
+
     }
 
     private fun setProgressView() {
@@ -55,6 +56,7 @@ class CourseProgressBarView @JvmOverloads constructor(
         sliceDrawable?.setTint(resources.getColor(R.color.colorAccent))
         invalidate()
     }
+
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         drawSlices(canvas) //call this function to draw custom Progress bar
@@ -101,6 +103,10 @@ class CourseProgressBarView @JvmOverloads constructor(
             value,
             context.resources.displayMetrics
         )
+    }
+
+    fun setProgressListener(progress: (() -> Int)) {
+        this.progress = progress()
     }
 
 }

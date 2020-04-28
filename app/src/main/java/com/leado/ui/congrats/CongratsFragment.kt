@@ -36,7 +36,6 @@ class CongratsFragment : Fragment() {
 //                flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
             }, null)
 
-
             Log.d("sign", "before intent")
             startActivity(Intent.createChooser(share, "Share images to.."))
             Log.e("sign", "after intent")

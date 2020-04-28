@@ -45,15 +45,17 @@
         <argument
             android:name="coursetitle"
             app:argType="string" />
+
     </fragment>
 
     <activity
         android:id="@+id/lessonActivity"
         android:name="com.leado.ui.lesson.LessonActivity"
         android:label="activity_lesson"
-        tools:layout="@layout/activity_lesson" >
+        tools:layout="@layout/activity_lesson">
         <argument
             android:name="lesson"
             app:argType="com.leado.model.Lesson" />
     </activity>
+
 </navigation>
