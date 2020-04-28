@@ -39,7 +39,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/rubik_medium"
             android:gravity="center_horizontal"
             android:lineSpacingExtra="3sp"
@@ -86,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.13"
+            app:layout_constraintGuide_percent="0.1"
             />
 
         <androidx.constraintlayout.widget.Guideline
@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.58"
+            app:layout_constraintGuide_percent="0.55"
 
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
