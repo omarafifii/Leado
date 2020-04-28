@@ -1,4 +1,4 @@
-package com.leado.ui.main.navBarFragments.LeaderBoard.viewpager
+package com.leado.ui.main.navBarFragments.LeaderBoard.badgestab
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +10,31 @@ import com.leado.R
 
 class BadgesViewAdapter() : RecyclerView.Adapter<BadgesViewAdapter.Viewholder>() {
 
-    var badgesTitle =
-        listOf("Badge 1", "Badge 2", "Badge 3", "Badge 4", "Badge 5", "Badge 6", "Badge 7")
-    var badgesDescription =
-        listOf("Desc. 1", "Desc. 2", "Desc. 3", "Desc. 4", "Desc. 5", "Desc. 6", "Desc. 7")
+//    var badgesTitle =
+//        listOf("Badge 1", "Badge 2", "Badge 3", "Badge 4", "Badge 5", "Badge 6", "Badge 7")
+//    var badgesDescription =
+//        listOf("Desc. 1", "Desc. 2", "Desc. 3", "Desc. 4", "Desc. 5", "Desc. 6", "Desc. 7")
+
+    var badgesTitle = listOf<String>()
+        set(value) {
+//            field.clear()
+            field = value
+            notifyDataSetChanged()
+        }
+
+//    var badgesTitle = mutableListOf<String>()
+//        set(value) {
+//            field.clear()
+//            field = value
+//            notifyDataSetChanged()
+//        }
+
+    var badgesDescription = listOf<String>()
+        set(value) {
+//            field.clear()
+            field = value
+            notifyDataSetChanged()
+        }
 
     class Viewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
-import com.leado.ui.main.navBarFragments.LeaderBoard.viewpager.LeaderboardViewAdapter
 
 class LeaderboardFragment : Fragment() {
 
