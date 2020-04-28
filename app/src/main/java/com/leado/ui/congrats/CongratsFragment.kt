@@ -17,7 +17,7 @@ class CongratsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_congrats, container)
+        return inflater.inflate(R.layout.fragment_congrats, container,false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

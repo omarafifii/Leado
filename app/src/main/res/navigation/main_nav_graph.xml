@@ -39,12 +39,15 @@
         android:label="Journey"
         tools:layout="@layout/fragment_journey"
         >
-        <action
-            android:id="@+id/action_journey_to_lessonActivity"
-            app:destination="@id/lessonActivity" />
+<!--        <action-->
+<!--            android:id="@+id/action_journey_to_lessonActivity"-->
+<!--            app:destination="@id/lessonActivity" />-->
         <argument
             android:name="coursetitle"
             app:argType="string" />
+        <action
+            android:id="@+id/action_journey_to_lessonFragment"
+            app:destination="@id/lessonFragment" />
 
     </fragment>
 
@@ -57,5 +60,24 @@
             android:name="lesson"
             app:argType="com.leado.model.Lesson" />
     </activity>
+    <fragment
+        android:id="@+id/lessonFragment"
+        android:name="com.leado.ui.lesson.LessonFragment"
+        android:label="LessonFragment"
+        tools:layout="@layout/fragment_lesson">
+    <argument
+        android:name="lesson"
+        app:argType="com.leado.model.Lesson" />
+        <action
+            android:id="@+id/action_lessonFragment_to_congratsFragment"
+            app:destination="@id/congratsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/congratsFragment"
+        android:name="com.leado.ui.congrats.CongratsFragment"
+        android:label="CongratsFragment"
+        tools:layout="@layout/fragment_congrats"
+        />
 
+<!--    <include app:graph="@navigation/journey_nav_graph" />-->
 </navigation>

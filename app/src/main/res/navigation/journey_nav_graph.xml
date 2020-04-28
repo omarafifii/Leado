@@ -5,12 +5,32 @@
     android:id="@+id/nav_journey"
     app:startDestination="@id/journey"
     >
-
-<fragment
+    <fragment
         android:id="@+id/journey"
         android:name="com.leado.ui.journey.JourneyFragment"
         android:label="Journey"
         tools:layout="@layout/fragment_journey"
+        >
+        <action
+            android:id="@+id/action_journey_to_lessonFragment"
+            app:destination="@id/lessonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lessonFragment"
+        android:name="com.leado.ui.lesson.LessonFragment"
+        android:label="LessonFragment"
+        tools:layout="@layout/fragment_lesson">
+        <argument
+            android:name="lesson"
+            app:argType="com.leado.model.Lesson" />
+        <action
+            android:id="@+id/action_lessonFragment_to_congratsFragment"
+            app:destination="@id/congratsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/congratsFragment"
+        android:name="com.leado.ui.congrats.CongratsFragment"
+        android:label="CongratsFragment"
+        tools:layout="@layout/fragment_congrats"
         />
-
 </navigation>

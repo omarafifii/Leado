@@ -4,14 +4,9 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.leado.R
 import kotlinx.android.synthetic.main.course_header_layout.view.*
-import com.leado.common.extensions.gone
-import com.leado.common.extensions.show
 
 class CourseHeaderLayout @JvmOverloads constructor(
     context: Context,
@@ -43,7 +38,7 @@ class CourseHeaderLayout @JvmOverloads constructor(
     )
     private var lessonNumber: Int = 1
     private var lessonIcon: Int = R.drawable.ic_book_shelf_1
-
+    private var _UpdateLessonIconProfress:(()->Int)?=null
     init {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.course_header_layout, this)
@@ -62,16 +57,23 @@ class CourseHeaderLayout @JvmOverloads constructor(
         iv_CourseDone.visibility = View.INVISIBLE
 //
         iv_CourseDone.setOnClickListener {
-            listener?.let {
-               claimYourGift-> claimYourGift(it)
+            _GoToCongratsListener?.let {
+               claimYourGift-> claimYourGift()
             }
         }
-    }
-    private var listener: ((View) -> Unit)? = null
 
-    fun addListener(func: (View) -> Unit) {
-        this.listener = func
+        _UpdateLessonIconProfress?.let{
+            UpdateIcon(it())
+        }
     }
+    private var _GoToCongratsListener: (() -> Unit)? = null
+    fun addGoToCongratsListener(func: () -> Unit) {
+        this._GoToCongratsListener = func
+    }
+    fun addUpdateLessonIconProfress(func:()->Int){
+        _UpdateLessonIconProfress = func
+    }
+
 
     private fun UpdateIcon(v: Int) {
         if (v == 0) {

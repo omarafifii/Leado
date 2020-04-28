@@ -1,11 +1,12 @@
 package com.leado.ui.journey
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -18,74 +19,103 @@ import com.leado.ui.journey.adapters.JourneyLessonAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_journey.*
 
-class JourneyFragment : Fragment(), OnLessonClickListener {
+class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListener {
+    val TAG = this.javaClass.simpleName
+    val model: JourneyViewModel by viewModels()
 
-    lateinit var model: JourneyViewModel
-    private val gridLessonAdapter = JourneyGridLessonAdapter()
-    private val journeyLessonAdapter = JourneyLessonAdapter(this)
+    private lateinit var gridLessonAdapter: JourneyGridLessonAdapter
+    private lateinit var journeyLessonAdapter: JourneyLessonAdapter
+
     private val args: JourneyFragmentArgs by navArgs()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        //Adapters
+        gridLessonAdapter = JourneyGridLessonAdapter()
+        journeyLessonAdapter = JourneyLessonAdapter(this)
+        Log.d(TAG, "onCreate")
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? { return inflater.inflate(R.layout.fragment_journey, container, false) }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        //hide BottomNav in JourneyFragment starting
-        requireActivity().bottom_nav.visibility = View.GONE
-        //ViewModels
-        model = ViewModelProvider(requireActivity()).get(JourneyViewModel::class.java)
-        //Adapters
-        gridLessonAdapter.gridLessonList = model.lessonByList
-        journeyLessonAdapter.lessonList = model.lessonByList
-        //RecyclerViews
-        rv_grid_lesson.adapter = gridLessonAdapter
-        rv_h_lesson.adapter = journeyLessonAdapter
-    }
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    ): View? {
+        Log.d(TAG, "onCreateView")
 
         //observe for adapterList
-        model.liveLessonByList.observe(viewLifecycleOwner, Observer { lessonList ->
+        model.liveTitleCourse.observe(viewLifecycleOwner, Observer { lessonList ->
             gridLessonAdapter.gridLessonList = lessonList
             journeyLessonAdapter.lessonList = lessonList
+            Log.d(TAG, "liveTitleCourse")
         })
         //observe for ProgressBar increase with lesson is active
         model._liveActiveLessons.observe(viewLifecycleOwner, Observer { progress ->
             pB_course.setProgressListener {
                 return@setProgressListener progress
             }
+            Log.d(TAG, "_liveActiveLessons")
+
         })
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d(TAG, "onViewCreated")
+        //hide BottomNav in JourneyFragment starting
+        requireActivity().bottom_nav.visibility = View.GONE
+
+        gridLessonAdapter.gridLessonList = model.lessonByList
+        journeyLessonAdapter.lessonList = model.lessonByList
+
+        //RecyclerViews
+        rv_grid_lesson.apply {
+            adapter = gridLessonAdapter
+            setHasFixedSize(true)
+        }
+        rv_h_lesson.apply {
+            adapter = journeyLessonAdapter
+            setHasFixedSize(true)
+        }
+
+
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        Log.d(TAG, "onActivityCreated")
+
+        //get Data from SafeArgs
+        val courseTitle = args.coursetitle
+        model.courseTitle = courseTitle
+        model._liveCourseTitle.value = model.courseTitle
+        tv_courseTitle.text = model.courseTitle
+        tv_lessonTitle?.text = model.courseTitle
     }
 
     override fun onResume() {
         super.onResume()
-        //get Data from SafeArgs
-        val coursetitle = args.coursetitle
-
-        model.courseTitle = coursetitle
-        tv_courseTitle.text = model.courseTitle
-        tv_lessonTitle?.text = model.courseTitle
+        Log.d(TAG, "onResume")
 
         journeyLessonAdapter.addLessonListener {
-            val action = JourneyFragmentDirections.actionJourneyToLessonActivity(it)
+            val action = JourneyFragmentDirections.actionJourneyToLessonFragment(it)
             findNavController().navigate(action)
         }
-
     }
 
-/**interface OnLessonClickListener**/
+    /**interface OnLessonClickListener**/
     override fun onLessonClicked(lesson: Lesson) {
-//        val action = JourneyFragmentDirections.actionJourneyToLessonActivity(lesson)
+//        val action = JourneyFragmentDirections.actionJourneyToLessonFragment(lesson)
 //        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
+        Log.d(TAG, "onResume")
         //Show BottomNav in MainActivity starting
         requireActivity().bottom_nav.visibility = View.VISIBLE
+        super.onDestroyView()
 
     }
 

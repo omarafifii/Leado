@@ -8,6 +8,8 @@ apply plugin: Deps.kotlinAndroidExtensions
 
 apply plugin: Deps.googlePlayServices
 apply plugin: Deps.safeArgs
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 
 android {
@@ -63,6 +65,7 @@ dependencies {
     implementation Lifecycle.viewmodel
     implementation Lifecycle.viewmodelKtx
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.android.support:appcompat-v7:25.0.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -90,7 +93,8 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
     implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
-    debugImplementation "androidx.fragment:fragment-testing:$fragment_version" // Testing Fragments in Isolation
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+    // Testing Fragments in Isolation
 
     def activity_version = "1.1.0"
     // Kotlin
@@ -114,5 +118,6 @@ dependencies {
     testImplementation UnitTests.arch
 //youtube api
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 
 }
