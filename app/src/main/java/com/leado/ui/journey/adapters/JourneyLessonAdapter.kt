@@ -19,11 +19,9 @@ class JourneyLessonAdapter(
 
     var lessonList = mutableListOf<Lesson>()
         set(value) {
-            field.clear()
             field = value
             notifyDataSetChanged()
         }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JourneyLessonViewHolder {
         val inflater = LayoutInflater.from(parent.context)
 

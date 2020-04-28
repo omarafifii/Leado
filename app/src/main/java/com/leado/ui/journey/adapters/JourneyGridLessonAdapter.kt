@@ -8,7 +8,6 @@ import com.leado.model.Lesson
 class JourneyGridLessonAdapter : RecyclerView.Adapter<JourneyGridLessonViewHolder>() {
     var gridLessonList = mutableListOf<Lesson>()
         set(value) {
-            field.clear()
             field = value
             notifyDataSetChanged()
         }

@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.leado.R
@@ -21,20 +20,26 @@ import kotlinx.android.synthetic.main.fragment_journey.*
 
 class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListener {
     val TAG = this.javaClass.simpleName
-    val model: JourneyViewModel by viewModels()
 
+    val model: JourneyViewModel by viewModels()
     private lateinit var gridLessonAdapter: JourneyGridLessonAdapter
     private lateinit var journeyLessonAdapter: JourneyLessonAdapter
-
     private val args: JourneyFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //observe for adapterList
+        model.liveTitleCourse.observe(this, Observer { lessonList ->
+            model.lessonByList = lessonList
+            gridLessonAdapter.gridLessonList = model.lessonByList
+            journeyLessonAdapter.lessonList = model.lessonByList
+            Log.d(TAG, " //observe for adapterList")
+        })
+
         //Adapters
         gridLessonAdapter = JourneyGridLessonAdapter()
         journeyLessonAdapter = JourneyLessonAdapter(this)
         Log.d(TAG, "onCreate")
-
     }
 
     override fun onCreateView(
@@ -44,19 +49,8 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
     ): View? {
         Log.d(TAG, "onCreateView")
 
-        //observe for adapterList
-        model.liveTitleCourse.observe(viewLifecycleOwner, Observer { lessonList ->
-            gridLessonAdapter.gridLessonList = lessonList
-            journeyLessonAdapter.lessonList = lessonList
-            Log.d(TAG, "liveTitleCourse")
-        })
-        //observe for ProgressBar increase with lesson is active
-        model._liveActiveLessons.observe(viewLifecycleOwner, Observer { progress ->
-            pB_course.setProgressListener {
-                return@setProgressListener progress
-            }
-            Log.d(TAG, "_liveActiveLessons")
-
+        model._liveProgressLessons.observe(viewLifecycleOwner, Observer { progress ->
+            pB_course.setProgressListener { return@setProgressListener progress }
         })
         return super.onCreateView(inflater, container, savedInstanceState)
     }
@@ -67,9 +61,6 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
         //hide BottomNav in JourneyFragment starting
         requireActivity().bottom_nav.visibility = View.GONE
 
-        gridLessonAdapter.gridLessonList = model.lessonByList
-        journeyLessonAdapter.lessonList = model.lessonByList
-
         //RecyclerViews
         rv_grid_lesson.apply {
             adapter = gridLessonAdapter
@@ -79,18 +70,16 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
             adapter = journeyLessonAdapter
             setHasFixedSize(true)
         }
-
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         Log.d(TAG, "onActivityCreated")
-
-        //get Data from SafeArgs
+        //get coursetitle from SafeArgs
         val courseTitle = args.coursetitle
+        model._liveCourseTitle.value = courseTitle
+
         model.courseTitle = courseTitle
-        model._liveCourseTitle.value = model.courseTitle
         tv_courseTitle.text = model.courseTitle
         tv_lessonTitle?.text = model.courseTitle
     }
@@ -98,19 +87,19 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume")
+        gridLessonAdapter.gridLessonList = model.lessonByList
+        journeyLessonAdapter.lessonList = model.lessonByList
 
         journeyLessonAdapter.addLessonListener {
             val action = JourneyFragmentDirections.actionJourneyToLessonFragment(it)
             findNavController().navigate(action)
         }
     }
-
     /**interface OnLessonClickListener**/
     override fun onLessonClicked(lesson: Lesson) {
 //        val action = JourneyFragmentDirections.actionJourneyToLessonFragment(lesson)
 //        findNavController().navigate(action)
     }
-
     override fun onDestroyView() {
         Log.d(TAG, "onResume")
         //Show BottomNav in MainActivity starting
