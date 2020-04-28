@@ -18,7 +18,7 @@ class CourseHeaderLayout @JvmOverloads constructor(
     var courseProgress: Int = 0
         set(value) {
             pB_course.progress = value
-            lessonIcon = lessonIconList[value]
+            lessonIcon = lessonIconList[value-1]
             field = value
         }
     var lessonNumber: Int = 1
