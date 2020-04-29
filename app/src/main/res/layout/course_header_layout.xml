@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/main_background"
     android:gravity="center"
-    android:padding="16dp">
+    android:padding="8dp">
 
     <ImageView
         android:id="@+id/iv_lessonIcon"
@@ -26,16 +26,16 @@
         android:id="@+id/tv_lessonNum"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_margin="4dp"
+
         android:background="@drawable/round_corner_white"
         android:elevation="4dp"
         android:fontFamily="@font/rubik_light"
         android:gravity="center"
         android:minWidth="50dp"
         android:paddingStart="8dp"
-        android:paddingEnd="8dp"
         android:paddingTop="4dp"
+        android:paddingEnd="8dp"
         android:paddingBottom="4dp"
         android:text="Lesson 1"
         android:textColor="@color/colorTextDark"
@@ -52,6 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/rubik_medium"
         android:gravity="center_horizontal"
         android:text="Support Systems"
@@ -66,23 +67,23 @@
     <com.leado.common.views.courseprogressbar.CourseProgressBarView
         android:id="@+id/pB_course"
         android:layout_width="190dp"
-        android:layout_height="25dp"
-
+        android:layout_height="24dp"
         android:layout_marginStart="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/tv_lessonTitle" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_CourseDone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:scaleType="center"
+        android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/pB_course"
         app:srcCompat="@drawable/ic_course_done" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -107,7 +108,12 @@
         android:layout_height="wrap_content"
         app:barrierDirection="right" />
 
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="160dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,15 +5,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
 import com.leado.model.Course
-import com.leado.model.Path
 
 class HomeScrollAdapter():RecyclerView.Adapter<HomeScrollViewHolder>() {
 
-
+    private var courseTitleListener:((String)-> Unit)?=null
+        fun addCourseTitleListener(func:((String)-> Unit)){
+            courseTitleListener = func
+        }
     var courseList = mutableListOf<Course>()
         set(value) {
             field.clear()
             field = value
+            notifyDataSetChanged()
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeScrollViewHolder {
@@ -24,7 +27,7 @@ return HomeScrollViewHolder(view)
 
     override fun onBindViewHolder(holder: HomeScrollViewHolder, position: Int) {
         var currentCourse = courseList[position]
-        holder.bind(currentCourse)
+        holder.bind(currentCourse,courseTitleListener)
     }
 
     override fun getItemCount(): Int {

@@ -21,7 +21,8 @@
             android:contentDescription="Celebrate"
             android:src="@drawable/confetti_congrats"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <TextView
             android:layout_width="match_parent"

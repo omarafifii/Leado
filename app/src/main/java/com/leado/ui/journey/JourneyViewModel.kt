@@ -1,60 +1,70 @@
 package com.leado.ui.journey
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.switchMap
+import android.util.Log
+import androidx.lifecycle.*
 import com.leado.R
-import com.leado.common.base.BaseViewModel
-import com.leado.model.Course
 import com.leado.model.Lesson
 import com.leado.repos.LessonRepo
 
 class JourneyViewModel : ViewModel() {
- 
-    var coursetitle = ""
+    val TAG = this.javaClass.simpleName
     private val lessonRepo = LessonRepo
-    private val icon= listOf(
+
+
+    var courseTitle = ""
+
+    val _liveProgressLessons = MutableLiveData<Int>()
+
+    var _progress: Int = 0
+
+    private val icon = listOf(
         R.drawable.ic_book_shelf_1,
         R.drawable.ic_book_shelf_2,
         R.drawable.ic_book_shelf_3,
         R.drawable.ic_book_shelf_4,
         R.drawable.ic_book_shelf_ref
-        )
-    var courseList = mutableListOf<Course>()
-
-    var lessons = mutableListOf<Lesson>()
-
+    )
     var lessonByList = mutableListOf<Lesson>()
-    val liveLessonByList = lessonRepo.getLessonByList().switchMap { 
-       it.forEachIndexed() {index, lesson ->
 
-          if (lesson.isActive){
-              lesson.icon =icon[index]
-          } else lesson.icon =R.drawable.ic_unkown
+    val _liveCourseTitle = MutableLiveData<String>()
 
-       }
-        val _liveLessonByList = MutableLiveData<MutableList<Lesson>>()
-        _liveLessonByList.value = it
-        return@switchMap _liveLessonByList
-    }
-    
-    
+    val  liveTitleCourse: LiveData<MutableList<Lesson>> = Transformations.switchMap(_liveCourseTitle){
+            coursetitle ->
+        courseTitle=coursetitle
+        Log.d(TAG,"///liveTitleCourse")
 
-    init {
-        lessons.apply {
-            add(Lesson(title = "Lesson 1",id = 1,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
-            add(Lesson(title = "Lesson 2",id = 2,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
-            add(Lesson(title = "Lesson 3",id = 3,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
-            add(Lesson(title = "Lesson 4",id = 4,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
-            add(Lesson(title = "Lesson 5",id = 5,description = "Building an integral support system,\n Pushes you to grow,\n strech more, mainly asks \n why things wont work, and bullet proofs ideas"))
+        lessonRepo.getLessonsByCourseTitle(coursetitle).switchMap {
+            _progress = 0
+        it.forEachIndexed() { index, lesson ->
+            updateLessonIcon( index, lesson)
         }
-//        courseList.apply {
-//            add(Course("Support System",R.drawable.ic_book_shelf_1,lessonList))
-//            add(Course("Support System",R.drawable.ic_unkown))
-//            add(Course("Support System",R.drawable.ic_unkown))
-//            add(Course("Support System",R.drawable.ic_unkown))
-//        }
+            lessonByList=it
+            val _liveLessonByCourse = MutableLiveData<MutableList<Lesson>>()
+            _liveLessonByCourse.value = it
+        return@switchMap _liveLessonByCourse
+    }
+    }
+    private fun updateLessonIcon(index: Int, lesson: Lesson) {
+
+        if (lesson.isActive) {
+            lesson.icon = icon[index]
+            ++_progress
+
+        }
+        else{ lesson.icon = R.drawable.ic_unkown}
+        _liveProgressLessons.value = _progress
     }
 
-
+//
+//    val liveLessonByList = lessonRepo.getLessonsByList().switchMap {
+//        it.forEachIndexed() { index, lesson ->
+//            updateLessonIcon( index, lesson)
+//        }
+//        lessonByList.clear()
+//        lessonByList.addAll(it)
+//        val _liveLessonByList = MutableLiveData<MutableList<Lesson>>()
+//        _liveLessonByList.value = it
+//
+//        return@switchMap _liveLessonByList
+//    }
 }

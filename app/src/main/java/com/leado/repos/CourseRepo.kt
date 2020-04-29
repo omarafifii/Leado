@@ -4,10 +4,11 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.Source
 import com.leado.model.Course
 
-object CourseRepo {
+object CourseRepo:GetCourseInterface {
     private val TAG = this.javaClass.simpleName
 
     private val COURSE_COLECTION = "Courses" //move to constants
@@ -25,12 +26,11 @@ object CourseRepo {
     }
 
     private val courseByList = mutableListOf<Course>()
-    fun getCourseByList(): MutableLiveData<MutableList<Course>> {
+    override fun getCoursesByList(): MutableLiveData<MutableList<Course>> {
         val liveCourseByList = MutableLiveData<MutableList<Course>>()
-        db.collection(COURSE_COLECTION)
+        db.collection(COURSE_COLECTION).orderBy("id",Query.Direction.ASCENDING)
             .get(defaultSource)
             .addOnSuccessListener {
-
                 if (it.documents.isNotEmpty()) {
                     courseByList.clear()
                     it.documents.forEach {
@@ -46,5 +46,19 @@ object CourseRepo {
             }
         return liveCourseByList
     }
+}
 
+interface GetCourseInterface{
+    //#1-Get All courses from Courses Collection
+    fun getCoursesByList(): MutableLiveData<MutableList<Course>>
+
+
+//    fun getCoursesByUser(): MutableLiveData<MutableList<Course>>
+//    fun getActiveCoursesByUser(): MutableLiveData<MutableList<Course>>
+//    fun getCompletedCoursesByUser(): MutableLiveData<MutableList<Course>>
+}
+
+interface AddCourseInterface{
+    //#2- Add Selected Course to user as sub Collection
+    fun AddCoursesByUser(/**doc of Users**/userName:String,/**subCollection of user**/courseTitle:String):Boolean
 }
