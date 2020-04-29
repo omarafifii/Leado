@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.leado.R
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.state_empty.*
 
 class ProfileFragment : Fragment() {
 
@@ -22,13 +24,18 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ProfileViewModel::class.java)
-        // TODO: Use the ViewModel
+        btnEmptyState_action.setOnClickListener {
+            requireActivity().bottom_nav.selectedItemId=R.id.home_Fragment
+
+        }
+
     }
 
 }

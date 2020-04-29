@@ -6,18 +6,20 @@ import android.os.Parcelable
 
 data class Lesson(
 
- var title: String = "",
-    var id: Int = 0,
+    var title: String = "",
     var description: String = "",
     var link: String = "",
+    var courseCategory:String="",
+    var id: Int = 0,
     var icon: Int = 0,
     var isActive:Boolean = false
 ) :Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
         parcel.readInt(),
-        parcel.readString(),
-        parcel.readString(),
         parcel.readInt(),
         parcel.readByte() != 0.toByte()
     ) {
@@ -25,9 +27,10 @@ data class Lesson(
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(title)
-        parcel.writeInt(id)
         parcel.writeString(description)
         parcel.writeString(link)
+        parcel.writeString(courseCategory)
+        parcel.writeInt(id)
         parcel.writeInt(icon)
         parcel.writeByte(if (isActive) 1 else 0)
     }

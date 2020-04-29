@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.lesson.LessonActivity">
-
     <com.leado.common.views.courseprogressbar.CourseHeaderLayout
         android:id="@+id/courseHeader"
         android:layout_width="match_parent"
@@ -14,12 +13,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:autoPlay="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/courseHeader"
+        app:showFullScreenButton="false"
+        android:elevation="4dp"
+        app:videoId=""
+        app:layout_constraintHeight_default="wrap"
+        >
 
+    </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_lesson_desc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:fontFamily="@font/rubik_light"
@@ -34,30 +47,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView34"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:fontFamily="@font/rubik_medium"
         android:text="Intoduction"
         android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/youtubeplayer_view" />
-
-    <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/youtubeplayer_view"
-        class="com.google.android.youtube.player.YouTubePlayerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courseHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/youtube_player_view"
+        android:padding="8dp"
+        android:paddingStart="8dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

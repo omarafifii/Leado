@@ -17,7 +17,7 @@ class CongratsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_congrats, container)
+        return inflater.inflate(R.layout.fragment_congrats, container,false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -35,7 +35,6 @@ class CongratsFragment : Fragment() {
 //                data = contentUri
 //                flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
             }, null)
-
 
             Log.d("sign", "before intent")
             startActivity(Intent.createChooser(share, "Share images to.."))
