@@ -48,7 +48,6 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
         savedInstanceState: Bundle?
     ): View? {
         Log.d(TAG, "onCreateView")
-
         model._liveProgressLessons.observe(viewLifecycleOwner, Observer { progress ->
             pB_course.setProgressListener { return@setProgressListener progress }
         })

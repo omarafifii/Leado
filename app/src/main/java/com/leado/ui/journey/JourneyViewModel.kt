@@ -38,7 +38,6 @@ class JourneyViewModel : ViewModel() {
         it.forEachIndexed() { index, lesson ->
             updateLessonIcon( index, lesson)
         }
-
             lessonByList=it
             val _liveLessonByCourse = MutableLiveData<MutableList<Lesson>>()
             _liveLessonByCourse.value = it
