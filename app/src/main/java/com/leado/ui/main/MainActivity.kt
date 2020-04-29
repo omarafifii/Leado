@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -23,6 +24,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.leado.BuildConfig
 import com.leado.R
+import com.leado.ui.main.navBarFragments.LeaderBoard.AchievementsViewModel
 import com.leado.ui.signup.SignUpActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -30,25 +32,29 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     val TAG = this.javaClass.simpleName
 
-
+    private lateinit var model: AchievementsViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         enableStrictMode()
 //        check for Auth and if user not logged in go back to registration
 //        SignUpActivity.start(this)
+        model = ViewModelProvider(this).get(AchievementsViewModel::class.java)
 
         val navController = findNavController(R.id.nav_host_fragment)
         setupBottomNavMenu(navController)
 
 
     }
-    private fun setupBottomNavMenu(navController: NavController) = bottom_nav?.setupWithNavController(navController)
+
+    private fun setupBottomNavMenu(navController: NavController) =
+        bottom_nav?.setupWithNavController(navController)
 
     override fun onResume() {
         super.onResume()
 
     }
+
     companion object {
         fun start(context: Context, flags: Int = 0) {
             val intent = Intent(context, MainActivity::class.java)
@@ -58,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
     /**
      * DEBUG
      * **/

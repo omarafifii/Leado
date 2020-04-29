@@ -13,17 +13,16 @@ import kotlinx.android.synthetic.main.leaderboard_item.view.*
 
 class LeaderboardViewAdapter() : RecyclerView.Adapter<LeaderboardViewAdapter.Viewholder>() {
 
-    var memberName = listOf("Name 1", "Name 2", "Name 3", "Name 4", "Name 5", "Name 6", "Name 7")
-    var points = listOf(
-        "Points. 1",
-        "Points. 2",
-        "Points. 3",
-        "Points. 4",
-        "Points. 5",
-        "Points. 6",
-        "Points. 7"
-    )
-
+    var memberName = mutableListOf<String>()
+    set(value) {
+        field=value
+        notifyDataSetChanged()
+    }
+    var points = mutableListOf<String>()
+        set(value) {
+            field=value
+            notifyDataSetChanged()
+        }
 
     class Viewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

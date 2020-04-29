@@ -17,7 +17,6 @@ class BadgesViewAdapter() : RecyclerView.Adapter<BadgesViewAdapter.Viewholder>()
 
     var badgesTitle = listOf<String>()
         set(value) {
-//            field.clear()
             field = value
             notifyDataSetChanged()
         }
@@ -41,7 +40,6 @@ class BadgesViewAdapter() : RecyclerView.Adapter<BadgesViewAdapter.Viewholder>()
         var title: TextView = itemView.findViewById(R.id.tv_BadgeName)
         var description: TextView = itemView.findViewById(R.id.tv_BadgeDetail)
         var imageResource: ImageView = itemView.findViewById(R.id.iv_badge)
-
 
     }
 
