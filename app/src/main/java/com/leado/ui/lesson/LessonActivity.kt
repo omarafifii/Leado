@@ -29,7 +29,7 @@ class LessonActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListene
         super.onResume()
 
         lesson = args.lesson
-        courseHeader?.courseProgress = lesson.id
+        courseHeader?.progress = lesson.id
         courseHeader?.lessonTitle = lesson.title
 
         courseHeader?.addGoToCongratsListener {

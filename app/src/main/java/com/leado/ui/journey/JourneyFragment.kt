@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.leado.R
@@ -21,14 +22,23 @@ import kotlinx.android.synthetic.main.fragment_journey.*
 class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListener {
     val TAG = this.javaClass.simpleName
 
-    val model: JourneyViewModel by viewModels()
+    lateinit var model: JourneyViewModel
+
+    //            by viewModels()
     private lateinit var gridLessonAdapter: JourneyGridLessonAdapter
     private lateinit var journeyLessonAdapter: JourneyLessonAdapter
-    private val args: JourneyFragmentArgs by navArgs()
+//    private val args: JourneyFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //observe for adapterList
+
+        model = requireActivity().run {
+
+            ViewModelProvider(this).get(JourneyViewModel::class.java)
+        }
+
+
         model.liveTitleCourse.observe(this, Observer { lessonList ->
             model.lessonByList = lessonList
             gridLessonAdapter.gridLessonList = model.lessonByList
@@ -57,8 +67,7 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "onViewCreated")
-        //hide BottomNav in JourneyFragment starting
-        requireActivity().bottom_nav.visibility = View.GONE
+
 
         //RecyclerViews
         rv_grid_lesson.apply {
@@ -75,12 +84,11 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
         super.onActivityCreated(savedInstanceState)
         Log.d(TAG, "onActivityCreated")
         //get coursetitle from SafeArgs
-        val courseTitle = args.coursetitle
-        model._liveCourseTitle.value = courseTitle
+//        val courseTitle = args.coursetitle
+//        model._liveCourseTitle.value = courseTitle
 
-        model.courseTitle = courseTitle
-        tv_courseTitle.text = model.courseTitle
-        tv_lessonTitle?.text = model.courseTitle
+//        model.courseTitle = courseTitle
+
     }
 
     override fun onResume() {
@@ -88,6 +96,9 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
         Log.d(TAG, "onResume")
         gridLessonAdapter.gridLessonList = model.lessonByList
         journeyLessonAdapter.lessonList = model.lessonByList
+
+        tv_courseTitle.text = model.courseTitle
+        tv_lessonTitle?.text = model.courseTitle
 
         journeyLessonAdapter.addLessonListener {
             val action = JourneyFragmentDirections.actionJourneyToLessonFragment(it)
@@ -101,8 +112,7 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
     }
     override fun onDestroyView() {
         Log.d(TAG, "onResume")
-        //Show BottomNav in MainActivity starting
-        requireActivity().bottom_nav.visibility = View.VISIBLE
+
         super.onDestroyView()
 
     }

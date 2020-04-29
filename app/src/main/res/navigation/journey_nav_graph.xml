@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/lessonFragment"
-        android:name="com.leado.ui.lesson.LessonFragment"
+        android:name="com.leado.ui.lesson.LessonVideoFragment"
         android:label="LessonFragment"
         tools:layout="@layout/fragment_lesson">
         <argument

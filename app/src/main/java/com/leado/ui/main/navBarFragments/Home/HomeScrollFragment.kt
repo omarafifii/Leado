@@ -48,8 +48,12 @@ class HomeScrollFragment : Fragment(R.layout.fragment_home_scrolled) {
     override fun onResume() {
         super.onResume()
         homeAdapter.addCourseTitleListener { courseTitle ->
-            val action = HomeScrollFragmentDirections.actionHomeFragmentToJourney(courseTitle)
+            val action = HomeScrollFragmentDirections.actionHomeFragmentToJourneyActivity(courseTitle)
             findNavController().navigate(action)
+
+            /**use this code when using fragment journey in main graph**/
+//            val action = HomeScrollFragmentDirections.actionHomeFragmentToJourney(courseTitle)
+//            findNavController().navigate(action)
         }
     }
 }

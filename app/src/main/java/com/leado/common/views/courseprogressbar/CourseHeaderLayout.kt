@@ -13,14 +13,13 @@ class CourseHeaderLayout @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
-    var courseProgress: Int = 0
+    var progress: Int = 0
         set(value) {
             pB_course.setProgressListener {
                 return@setProgressListener value
             }
             UpdateIcon(value)
             UpdateLessonNumber(value)
-            if (value == 5) UpdateIconCourseDone()
             field = value
         }
     var lessonTitle = ""
@@ -38,14 +37,13 @@ class CourseHeaderLayout @JvmOverloads constructor(
     )
     private var lessonNumber: Int = 1
     private var lessonIcon: Int = R.drawable.ic_book_shelf_1
-    private var _UpdateLessonIconProfress:(()->Int)?=null
+
     init {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.course_header_layout, this)
-
         //init views
         //progress
-        courseProgress = 1
+        progress = 1
         //title
         tv_lessonTitle.text = lessonTitle
         //icon
@@ -61,18 +59,13 @@ class CourseHeaderLayout @JvmOverloads constructor(
                claimYourGift-> claimYourGift()
             }
         }
-
-        _UpdateLessonIconProfress?.let{
-            UpdateIcon(it())
-        }
     }
     private var _GoToCongratsListener: (() -> Unit)? = null
     fun addGoToCongratsListener(func: () -> Unit) {
         this._GoToCongratsListener = func
     }
-    fun addUpdateLessonIconProfress(func:()->Int){
-        _UpdateLessonIconProfress = func
-    }
+
+
 
 
     private fun UpdateIcon(v: Int) {
@@ -98,9 +91,14 @@ class CourseHeaderLayout @JvmOverloads constructor(
         tv_lessonTitle.text = v
     }
 
-    private fun UpdateIconCourseDone() {
-        iv_CourseDone.visibility = View.VISIBLE
-    }
+     fun updateIconCourseDone() {
+
+         if(progress!=5)
+             return
+
+    else  iv_CourseDone.visibility = View.VISIBLE
+
+     }
 
 }
 
