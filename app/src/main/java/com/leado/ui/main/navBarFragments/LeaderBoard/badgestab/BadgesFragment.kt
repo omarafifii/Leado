@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.leado.R
 import com.leado.ui.main.navBarFragments.LeaderBoard.AchievementsViewModel
@@ -37,7 +38,7 @@ companion object {
         }!!
         badgesAdapter = BadgesViewAdapter()
 
-        Log.d(TAG,"BadgesFragment //onCreate //${model.badgesTitle.size} ")
+        Log.d(TAG, "BadgesFragment //onCreate //${model.badgeByList.size} ")
 
     }
     override fun onCreateView(
@@ -45,25 +46,38 @@ companion object {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d(TAG,"BadgesFragment //onCreateView //${model.badgesTitle.size} ")
+        Log.d(TAG, "BadgesFragment //onCreateView //${model.badgeByList.size} ")
 
         return inflater.inflate(R.layout.badges_page, container, false)
     }
     override fun onResume() {
         super.onResume()
-        Log.d(TAG,"BadgesFragment// onResume //${model.badgesTitle.size} ")
-        badgesAdapter.badgesTitle = model.badgesTitle
+
+        Log.d(TAG, "BadgesFragment// onResume //${model.badgeByList.size} ")
+        Log.d(TAG, "BadgesFragment// onResume //${model.userByList.size} ")
+        Log.d(TAG, "BadgesFragment// onResume //${model.userByList.size} ")
+        badgesAdapter.badgeByList = model.badgeByList
         badgesAdapter.notifyDataSetChanged()
-        badgesAdapter.badgesDescription = model.badgesDescription
+        badgesAdapter.badgeByList = model.badgeByList
 
         recycler_achievements.apply {
-       adapter = badgesAdapter
+            adapter = badgesAdapter
 
         }
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Log.d(TAG,"BadgesFragment //onActivityCreated //${model.badgesTitle.size} ")
+        model.liveBadgeByList.observe(viewLifecycleOwner, Observer {
+
+            badgesAdapter.badgeByList = it
+
+        })
+        badgesAdapter.notifyDataSetChanged()
+        recycler_achievements.apply {
+            adapter = badgesAdapter
+
+        }
+        Log.d(TAG, "BadgesFragment //onActivityCreated //${model.badgeByList.size} ")
 
     }
 

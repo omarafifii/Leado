@@ -38,13 +38,16 @@ object BadgeRepo {
                         val badge =
                             it.toObject(Badge::class.java) //convert Document snapshots data from maps to POJO
                         badgeByList.add(badge!!)
+                        Log.d(TAG, "Badge name if not empty  //${badge.title} ")
                     }
                 }
                 liveBadgeByList.value = badgeByList
+                Log.d(TAG, "Badge documents empty //${badgeByList.size} ")
             }
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error Getting Leado Data: ", e)
             }
+        Log.d(TAG, "BadgesRepo  //${badgeByList.size} ")
         return liveBadgeByList
     }
 

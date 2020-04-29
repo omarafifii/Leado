@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
+import com.leado.model.Badge
 
 class BadgesViewAdapter() : RecyclerView.Adapter<BadgesViewAdapter.Viewholder>() {
 
@@ -15,11 +16,11 @@ class BadgesViewAdapter() : RecyclerView.Adapter<BadgesViewAdapter.Viewholder>()
 //    var badgesDescription =
 //        listOf("Desc. 1", "Desc. 2", "Desc. 3", "Desc. 4", "Desc. 5", "Desc. 6", "Desc. 7")
 
-    var badgesTitle = listOf<String>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+//    var badgesTitle = listOf<String>()
+//        set(value) {
+//            field = value
+//            notifyDataSetChanged()
+//        }
 
 //    var badgesTitle = mutableListOf<String>()
 //        set(value) {
@@ -28,9 +29,16 @@ class BadgesViewAdapter() : RecyclerView.Adapter<BadgesViewAdapter.Viewholder>()
 //            notifyDataSetChanged()
 //        }
 
-    var badgesDescription = listOf<String>()
+//    var badgesDescription = listOf<String>()
+//        set(value) {
+////            field.clear()
+//            field = value
+//            notifyDataSetChanged()
+//        }
+
+    var badgeByList = mutableListOf<Badge>()
         set(value) {
-//            field.clear()
+            field.clear()
             field = value
             notifyDataSetChanged()
         }
@@ -52,12 +60,12 @@ class BadgesViewAdapter() : RecyclerView.Adapter<BadgesViewAdapter.Viewholder>()
     }
 
     override fun getItemCount(): Int {
-        return badgesTitle.size
+        return badgeByList.size
     }
 
     override fun onBindViewHolder(holder: Viewholder, position: Int) {
-        holder.title.text = badgesTitle[position]
-        holder.description.setText(badgesDescription[position])
+        holder.title.text = badgeByList[position].title
+        holder.description.text = badgeByList[position].description
         holder.imageResource.setImageResource(R.drawable.ic_badge_quicklearner)
 
 //
