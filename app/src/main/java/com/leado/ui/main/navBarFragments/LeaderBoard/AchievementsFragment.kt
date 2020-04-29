@@ -21,23 +21,25 @@ class AchievementsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-    model = activity?.run {
-        ViewModelProvider(this).get(AchievementsViewModel::class.java)
-    }!!
+        model = activity?.run {
+            ViewModelProvider(this).get(AchievementsViewModel::class.java)
+        }!!
 
-        Log.d(TAG,"AchievementsFragment //onCreate ")
+        Log.d(TAG, "AchievementsFragment //onCreate ")
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d(TAG,"AchievementsFragment //onCreateView")
+        Log.d(TAG, "AchievementsFragment //onCreateView")
         return inflater.inflate(R.layout.fragment_achievments, container, false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d(TAG,"AchievementsFragment //onViewCreated")
+        Log.d(TAG, "AchievementsFragment //onViewCreated")
 
         adapterViewPager = MyPagerAdapter(parentFragmentManager)
 
@@ -46,13 +48,15 @@ class AchievementsFragment : Fragment() {
         tabs.setupWithViewPager(view_pager_achievements)
 
     }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Log.d(TAG,"AchievementsFragment //onActivityCreated")
+        Log.d(TAG, "AchievementsFragment //onActivityCreated")
     }
+
     override fun onResume() {
         super.onResume()
-        Log.d(TAG,"AchievementsFragment //onResume")
+        Log.d(TAG, "AchievementsFragment //onResume")
 
     }
 }
