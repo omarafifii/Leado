@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_lesson.*
 
 class LessonActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener {
 
-    val args: LessonActivityArgs by navArgs()
+//    val args: LessonActivityArgs by navArgs()
     lateinit var lesson: Lesson
 
 
@@ -28,9 +28,9 @@ class LessonActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListene
     override fun onResume() {
         super.onResume()
 
-        lesson = args.lesson
-        courseHeader?.progress = lesson.id
-        courseHeader?.lessonTitle = lesson.title
+//        lesson = args.lesson
+//        courseHeader?.progress = lesson.id
+//        courseHeader?.lessonTitle = lesson.title
 
         courseHeader?.addGoToCongratsListener {
         }

@@ -45,7 +45,7 @@ class BadgesViewAdapter() : RecyclerView.Adapter<BadgesViewAdapter.Viewholder>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
         val view: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.badge_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_badge, parent, false)
         return Viewholder(
             view
         )

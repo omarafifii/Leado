@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
 import com.leado.common.views.EqualWidthHeightTextView
-import kotlinx.android.synthetic.main.leaderboard_item.view.*
+import kotlinx.android.synthetic.main.item_leaderboard.view.*
 
 class LeaderboardViewAdapter() : RecyclerView.Adapter<LeaderboardViewAdapter.Viewholder>() {
 
@@ -37,7 +37,7 @@ class LeaderboardViewAdapter() : RecyclerView.Adapter<LeaderboardViewAdapter.Vie
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
         val view: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.leaderboard_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_leaderboard, parent, false)
         return Viewholder(
             view
         )

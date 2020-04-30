@@ -16,7 +16,7 @@ import com.leado.R
 import com.leado.model.Course
 import com.leado.ui.main.navBarFragments.Home.adapters.HomeScrollAdapter
 import kotlinx.android.synthetic.main.fragment_home_scrolled.*
-import kotlinx.android.synthetic.main.home_scrolled_item.*
+import kotlinx.android.synthetic.main.item_home_scrolled.*
 
 class HomeScrollFragment : Fragment(R.layout.fragment_home_scrolled) {
     private lateinit var model: HomeScrollViewModel

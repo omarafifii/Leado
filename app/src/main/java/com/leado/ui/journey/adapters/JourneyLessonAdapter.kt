@@ -25,7 +25,7 @@ class JourneyLessonAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JourneyLessonViewHolder {
         val inflater = LayoutInflater.from(parent.context)
 
-        val view = inflater.inflate(R.layout.journey_lesson_item, parent, false)
+        val view = inflater.inflate(R.layout.item_journey_lesson, parent, false)
         return JourneyLessonViewHolder(view)
     }
 

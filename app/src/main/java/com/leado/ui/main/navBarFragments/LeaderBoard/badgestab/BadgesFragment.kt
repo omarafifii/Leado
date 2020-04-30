@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.leado.R
 import com.leado.ui.main.navBarFragments.LeaderBoard.AchievementsViewModel
-import kotlinx.android.synthetic.main.badges_page.*
+import kotlinx.android.synthetic.main.frgment_badges_page.*
 
 class BadgesFragment : Fragment() {
      val TAG = this.javaClass.simpleName
@@ -47,7 +47,7 @@ companion object {
     ): View? {
         Log.d(TAG,"BadgesFragment //onCreateView //${model.badgesTitle.size} ")
 
-        return inflater.inflate(R.layout.badges_page, container, false)
+        return inflater.inflate(R.layout.frgment_badges_page, container, false)
     }
     override fun onResume() {
         super.onResume()

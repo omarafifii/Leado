@@ -34,11 +34,25 @@
             app:exitAnim="@anim/ib_core_anim_slide_out_left"
             app:popEnterAnim="@anim/ib_core_anim_slide_in_left"
             app:popExitAnim="@anim/ib_core_anim_slide_out_right" />
+        <action
+            android:id="@+id/action_lessonFragment_to_quizFragment"
+            app:destination="@id/quizFragment"
+            app:enterAnim="@anim/ib_core_anim_slide_in_right"
+            app:exitAnim="@anim/ib_core_anim_slide_out_left"
+            app:popEnterAnim="@anim/ib_core_anim_slide_in_left"
+            app:popExitAnim="@anim/ib_core_anim_slide_out_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/congratsFragment"
         android:name="com.leado.ui.congrats.CongratsFragment"
         android:label="CongratsFragment"
         tools:layout="@layout/fragment_congrats"
+        />
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.leado.ui.quiz.QuizFragment"
+        android:label="QuizFragment"
+        tools:layout="@layout/fragment_quiz"
         />
 </navigation>

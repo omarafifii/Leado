@@ -9,7 +9,7 @@ import android.view.ViewGroup
 
 import com.leado.R
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.state_empty.*
+import kotlinx.android.synthetic.main.layout_state_empty.*
 
 class ProfileFragment : Fragment() {
 

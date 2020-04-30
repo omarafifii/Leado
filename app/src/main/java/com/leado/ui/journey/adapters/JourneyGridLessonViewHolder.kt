@@ -4,7 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
 import com.leado.model.Lesson
-import kotlinx.android.synthetic.main.journey_course_item.view.*
+import kotlinx.android.synthetic.main.item_journey_course.view.*
 
 
 class JourneyGridLessonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

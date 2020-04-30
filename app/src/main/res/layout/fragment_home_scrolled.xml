@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:clipToPadding="true"
-        tools:listitem="@layout/home_scrolled_item"
+        tools:listitem="@layout/item_home_scrolled"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

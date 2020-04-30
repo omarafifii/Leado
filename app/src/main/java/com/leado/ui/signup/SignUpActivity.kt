@@ -34,7 +34,7 @@ val db = FirebaseFirestore.getInstance()
 
         bt_GetStarted.setOnClickListener {
 
-//UploadData.fastEdit(db)
+//UploadData.createCourseCollection(db)
             MainActivity.start(
                 /**
                  * for testing
@@ -96,13 +96,11 @@ val db = FirebaseFirestore.getInstance()
     }
 
     override fun getLoadingView(): View? = progress_loading
-
     companion object {
         fun start(context: Context) {
             val intent = Intent(context, SignUpActivity::class.java)
             context.startActivity(intent)
         }
-
 
     }
 }

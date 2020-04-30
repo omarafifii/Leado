@@ -5,26 +5,22 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.model.Course
 import com.leado.ui.main.navBarFragments.Home.HomeScrollFragmentDirections
-import kotlinx.android.synthetic.main.home_scrolled_item.view.*
+import kotlinx.android.synthetic.main.item_home_scrolled.view.*
 
 class HomeScrollViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind(
-        currentCourse: Course,
-        courseTitleListener: ((String) -> Unit)?
-    ) {
+	fun bind(currentCourse: Course, courseTitleListener: ((String) -> Unit)?) {
 
-        currentCourse.apply {
-            itemView.iv_course.setImageResource(icon) //icons assigned in viewModel
-            itemView.bt_courseTitle.text = title
-        }
+		currentCourse.apply {
+			itemView.iv_course.setImageResource(icon) //icons assigned in viewModel
+			itemView.bt_courseTitle.text = title
+		}
 
-        itemView.bt_courseTitle.setOnClickListener{
-
-            courseTitleListener?.let {
-                it(currentCourse.title)
-            }
-        }
-    }
+		itemView.bt_courseTitle.setOnClickListener {
+			courseTitleListener?.let {
+				it(currentCourse.title)
+			}
+		}
+	}
 
 }

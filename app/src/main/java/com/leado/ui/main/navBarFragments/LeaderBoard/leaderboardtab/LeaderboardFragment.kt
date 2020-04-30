@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
 import com.leado.ui.main.navBarFragments.LeaderBoard.AchievementsViewModel
-import kotlinx.android.synthetic.main.badges_page.*
+import kotlinx.android.synthetic.main.frgment_badges_page.*
 
 class LeaderboardFragment : Fragment() {
     val TAG = this.javaClass.simpleName
@@ -36,7 +34,7 @@ class LeaderboardFragment : Fragment() {
         leaderAdapter.memberName = model.memberName
         leaderAdapter.points = model.points
 
-        return inflater.inflate(R.layout.badges_page, container, false)
+        return inflater.inflate(R.layout.frgment_badges_page, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -18,8 +18,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView25"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -27,8 +27,8 @@
             android:text=" BlaBlaBla \n BlaBlaBlaBla"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/textView32"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_answerNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"

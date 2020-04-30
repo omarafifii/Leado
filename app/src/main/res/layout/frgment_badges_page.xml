@@ -10,7 +10,7 @@
     android:clipToPadding="false"
     tools:itemCount="5"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:listitem="@layout/badge_item">
+    tools:listitem="@layout/item_badge">
 
 
 </androidx.recyclerview.widget.RecyclerView>

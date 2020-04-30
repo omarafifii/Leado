@@ -21,7 +21,7 @@ class HomeScrollAdapter():RecyclerView.Adapter<HomeScrollViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeScrollViewHolder {
     val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.home_scrolled_item, parent, false)
+        val view = inflater.inflate(R.layout.item_home_scrolled, parent, false)
 return HomeScrollViewHolder(view)
     }
 

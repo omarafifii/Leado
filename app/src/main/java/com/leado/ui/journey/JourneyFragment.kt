@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -15,22 +16,23 @@ import com.leado.model.Lesson
 import com.leado.ui.journey.adapters.JourneyGridLessonAdapter
 import com.leado.ui.journey.adapters.JourneyLessonAdapter
 import kotlinx.android.synthetic.main.fragment_journey.*
+import kotlin.coroutines.coroutineContext
 
 class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListener {
-   private val TAG = this.javaClass.simpleName
-
+    private val TAG = this.javaClass.simpleName
+    
     private lateinit var modelShared: JourneySharedViewModel
     private lateinit var gridLessonAdapter: JourneyGridLessonAdapter
     private lateinit var journeyLessonAdapter: JourneyLessonAdapter
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate")
-        modelShared = requireActivity().run {ViewModelProvider(this).get(JourneySharedViewModel::class.java) }
+        modelShared = requireActivity().run { ViewModelProvider(this).get(JourneySharedViewModel::class.java) }
         //Adapters
         gridLessonAdapter = JourneyGridLessonAdapter()
         journeyLessonAdapter = JourneyLessonAdapter(this)
-
+        
         //observe for all time
         //observe for adapterList
         modelShared.liveTitleCourse.observe(this, Observer { lessonList ->
@@ -39,21 +41,19 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
             gridLessonAdapter.gridLessonList = modelShared.lessonByList
             journeyLessonAdapter.lessonList = modelShared.lessonByList
         })
+        
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.d(TAG, "onCreateView")
-
+        
         //observe for progressbar
-        modelShared._liveProgressLessons.observe(viewLifecycleOwner, Observer { progress ->
-            pB_course?.setProgressListener { return@setProgressListener progress } })
+        modelShared.liveProgressLessons.observe(viewLifecycleOwner, Observer { progress ->
+            pB_course?.setProgressListener { return@setProgressListener progress }
+        })
         return super.onCreateView(inflater, container, savedInstanceState)
     }
-
+    
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "onViewCreated")
@@ -68,36 +68,35 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
         }
         goToLesson()
     }
-
+    
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         Log.d(TAG, "onActivityCreated")
     }
-
+    
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume")
-
         tv_courseTitle?.text = modelShared.courseTitle
         tv_headerTitle?.text = modelShared.courseTitle
-
+        
     }
-
-   private fun goToLesson(){
+    
+    private fun goToLesson() {
         journeyLessonAdapter.addLessonListener {
             val action = JourneyFragmentDirections.actionJourneyToLessonFragment(it)
             findNavController().navigate(action)
         }
     }
-
+    
     override fun onDestroyView() {
         Log.d(TAG, "onResume")
         super.onDestroyView()
     }
-
+    
     /**interface OnLessonClickListener**/
     override fun onLessonClicked(lesson: Lesson) {
-//        val action = JourneyFragmentDirections.actionJourneyToLessonFragment(lesson)
-//        findNavController().navigate(action)
+        //        val action = JourneyFragmentDirections.actionJourneyToLessonFragment(lesson)
+        //        findNavController().navigate(action)
     }
 }

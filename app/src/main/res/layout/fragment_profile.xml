@@ -138,7 +138,7 @@
     </LinearLayout>
 
     <include
-        layout="@layout/state_empty"
+        layout="@layout/layout_state_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -163,6 +163,6 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
         app:layout_constraintVertical_bias="0.0"
         tools:itemCount="4"
-        tools:listitem="@layout/badge_item" />
+        tools:listitem="@layout/item_badge" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

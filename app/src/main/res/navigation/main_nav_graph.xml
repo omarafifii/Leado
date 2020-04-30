@@ -60,15 +60,6 @@
 
     </fragment>
 
-    <activity
-        android:id="@+id/lessonActivity"
-        android:name="com.leado.ui.lesson.LessonActivity"
-        android:label="activity_lesson"
-        tools:layout="@layout/activity_lesson">
-        <argument
-            android:name="lesson"
-            app:argType="com.leado.model.Lesson" />
-    </activity>
     <fragment
         android:id="@+id/lessonFragment"
         android:name="com.leado.ui.lesson.LessonVideoFragment"
@@ -98,5 +89,5 @@
             app:argType="string" />
     </activity>
 
-    <!--    <include app:graph="@navigation/journey_nav_graph" />-->
+<!--        <include app:graph="@navigation/journey_nav_graph" />-->
 </navigation>

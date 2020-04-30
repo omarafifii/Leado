@@ -2,6 +2,8 @@ package com.leado.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.firebase.firestore.ServerTimestamp
+import java.util.*
 
 
 data class Lesson(
@@ -12,7 +14,8 @@ data class Lesson(
     var courseCategory:String="",
     var id: Int = 0,
     var icon: Int = 0,
-    var isActive:Boolean = false
+    var isActive:Boolean = false,
+    var videoPoint:Float = 0f
 ) :Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readString(),
@@ -21,7 +24,8 @@ data class Lesson(
         parcel.readString(),
         parcel.readInt(),
         parcel.readInt(),
-        parcel.readByte() != 0.toByte()
+        parcel.readByte() != 0.toByte(),
+        parcel.readFloat()
     ) {
     }
 
@@ -33,6 +37,7 @@ data class Lesson(
         parcel.writeInt(id)
         parcel.writeInt(icon)
         parcel.writeByte(if (isActive) 1 else 0)
+        parcel.writeFloat(videoPoint)
     }
 
     override fun describeContents(): Int {

@@ -14,7 +14,7 @@ class JourneyGridLessonAdapter : RecyclerView.Adapter<JourneyGridLessonViewHolde
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JourneyGridLessonViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.journey_course_item, parent, false)
+        val view = inflater.inflate(R.layout.item_journey_course, parent, false)
 
         return JourneyGridLessonViewHolder(view)
     }
