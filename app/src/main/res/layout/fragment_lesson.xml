@@ -27,6 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/courseHeader"
         app:showFullScreenButton="false"
         android:elevation="4dp"
+        app:useWebUi="true"
        />
 
     <androidx.appcompat.widget.AppCompatTextView
