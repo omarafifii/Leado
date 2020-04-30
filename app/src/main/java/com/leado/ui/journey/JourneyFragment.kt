@@ -39,9 +39,6 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
             gridLessonAdapter.gridLessonList = modelShared.lessonByList
             journeyLessonAdapter.lessonList = modelShared.lessonByList
         })
-        //observe for progressbar
-        modelShared._liveProgressLessons.observe(this, Observer { progress ->
-            pB_course?.setProgressListener { return@setProgressListener progress } })
     }
 
     override fun onCreateView(
@@ -51,6 +48,9 @@ class JourneyFragment : Fragment(R.layout.fragment_journey), OnLessonClickListen
     ): View? {
         Log.d(TAG, "onCreateView")
 
+        //observe for progressbar
+        modelShared._liveProgressLessons.observe(viewLifecycleOwner, Observer { progress ->
+            pB_course?.setProgressListener { return@setProgressListener progress } })
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
