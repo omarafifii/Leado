@@ -38,7 +38,7 @@ class BadgesViewAdapter() : RecyclerView.Adapter<BadgesViewAdapter.Viewholder>()
 
     var badgeByList = mutableListOf<Badge>()
         set(value) {
-            field.clear()
+//            field.clear()
             field = value
             notifyDataSetChanged()
         }
@@ -66,7 +66,7 @@ class BadgesViewAdapter() : RecyclerView.Adapter<BadgesViewAdapter.Viewholder>()
     override fun onBindViewHolder(holder: Viewholder, position: Int) {
         holder.title.text = badgeByList[position].title
         holder.description.text = badgeByList[position].description
-        holder.imageResource.setImageResource(R.drawable.ic_badge_quicklearner)
+        holder.imageResource.setImageResource(badgeByList[position].icon)
 
 //
     }
