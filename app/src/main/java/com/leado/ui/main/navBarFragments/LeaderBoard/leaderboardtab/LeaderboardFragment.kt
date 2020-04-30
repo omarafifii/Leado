@@ -47,6 +47,7 @@ class LeaderboardFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "BadgesFragment// onResume before assign//${model.badgeByList.size} ")
+//        model.updateUsers()
         leaderAdapter.userList = model.userByList
         leaderAdapter.notifyDataSetChanged()
         Log.d(TAG, "BadgesFragment// onResume after assign //${model.badgeByList.size} ")

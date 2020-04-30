@@ -56,12 +56,22 @@ class AchievementsViewModel : ViewModel() {
 
     /**get Users for Leaderboard**/
     var userByList = mutableListOf<User>()
-    val liveUserByList = userRepo.getUserByList().switchMap {
+    var liveUserByList = userRepo.getUserByList().switchMap {
         userByList.clear()
         userByList.addAll(it)
         val _liveUserByList = MutableLiveData<MutableList<User>>()
         _liveUserByList.value = it
         return@switchMap _liveUserByList
     }
+
+//    fun updateUsers() {
+//            liveUserByList = userRepo.getUserByList().switchMap {
+//            userByList.clear()
+//            userByList.addAll(it)
+//            val _liveUserByList = MutableLiveData<MutableList<User>>()
+//            _liveUserByList.value = it
+//            return@switchMap _liveUserByList
+//        }
+//    }
 
 }
