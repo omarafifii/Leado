@@ -13,7 +13,11 @@
         >
         <action
             android:id="@+id/action_journey_to_lessonFragment"
-            app:destination="@id/lessonFragment" />
+            app:destination="@id/lessonFragment"
+            app:enterAnim="@anim/ib_core_anim_slide_in_right"
+            app:exitAnim="@anim/ib_core_anim_slide_out_left"
+            app:popEnterAnim="@anim/ib_core_anim_slide_in_left"
+            app:popExitAnim="@anim/ib_core_anim_slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/lessonFragment"
@@ -25,7 +29,11 @@
             app:argType="com.leado.model.Lesson" />
         <action
             android:id="@+id/action_lessonFragment_to_congratsFragment"
-            app:destination="@id/congratsFragment" />
+            app:destination="@id/congratsFragment"
+            app:enterAnim="@anim/ib_core_anim_slide_in_right"
+            app:exitAnim="@anim/ib_core_anim_slide_out_left"
+            app:popEnterAnim="@anim/ib_core_anim_slide_in_left"
+            app:popExitAnim="@anim/ib_core_anim_slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/congratsFragment"

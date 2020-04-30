@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
     app:cardUseCompatPadding="true"
     android:layout_margin="10dp"
@@ -12,7 +12,7 @@
     >
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="200dp"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     >
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -58,17 +58,15 @@
         android:id="@+id/tv_lessonDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/rubik_light"
         android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:text="Building an integral support system,
 Pushes you to grow, strech more, mainly asks why things wont work, and bullet proofs ideas"
         android:textColor="#000000"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/bt_startLesson"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_lessonNum" />
@@ -77,8 +75,9 @@ Pushes you to grow, strech more, mainly asks why things wont work, and bullet pr
         android:id="@+id/bt_startLesson"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/curved_button_gray"
         android:fontFamily="@font/rubik_regular"
@@ -87,7 +86,9 @@ Pushes you to grow, strech more, mainly asks why things wont work, and bullet pr
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lessonDesc"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

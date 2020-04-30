@@ -2,6 +2,7 @@ package com.leado.ui.congrats
 
 import android.content.Intent
 import android.os.Bundle
+import android.transition.ChangeBounds
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,8 @@ class CongratsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         return inflater.inflate(R.layout.fragment_congrats, container,false)
     }
 

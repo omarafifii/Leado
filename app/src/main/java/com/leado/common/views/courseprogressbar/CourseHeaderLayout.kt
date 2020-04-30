@@ -3,9 +3,10 @@ package com.leado.common.views.courseprogressbar
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.leado.R
+import com.leado.common.extensions.gone
+import com.leado.common.extensions.show
 import kotlinx.android.synthetic.main.course_header_layout.view.*
 
 class CourseHeaderLayout @JvmOverloads constructor(
@@ -13,21 +14,24 @@ class CourseHeaderLayout @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
+
+    private var toCongratsListener: (() -> Unit)? = null
+    private var lessonNumber: Int = 1
+    private var lessonIcon: Int = R.drawable.ic_book_shelf_1
+
     var progress: Int = 0
         set(value) {
-            pB_course.setProgressListener {
-                return@setProgressListener value
-            }
-            UpdateIcon(value)
-            UpdateLessonNumber(value)
+            updateProgressBarView(value)
+            updateLessonIcon(value)
+            updateLessonNumber(value)
             field = value
         }
-    var lessonTitle = ""
-    set(value) {
-        ubdateLessonTitle(value)
-        field = value
-    }
 
+    var lessonTitle = ""
+        set(value) {
+            updateLessonTitle(value)
+            field = value
+        }
     private val lessonIconList = listOf(
         R.drawable.ic_book_shelf_1,
         R.drawable.ic_book_shelf_2,
@@ -35,70 +39,59 @@ class CourseHeaderLayout @JvmOverloads constructor(
         R.drawable.ic_book_shelf_4,
         R.drawable.ic_book_shelf_ref
     )
-    private var lessonNumber: Int = 1
-    private var lessonIcon: Int = R.drawable.ic_book_shelf_1
 
     init {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.course_header_layout, this)
         //init views
-        //progress
         progress = 1
-        //title
-        tv_lessonTitle.text = lessonTitle
-        //icon
-        lessonIcon = lessonIconList[0]
-        iv_lessonIcon.visibility = View.INVISIBLE
-        //lesson number
-        tv_lessonNum.visibility = View.INVISIBLE
-        //when course complete
-        iv_CourseDone.visibility = View.INVISIBLE
-//
+
+        tv_headerTitle.text = lessonTitle
+
+        iv_lessonIcon.gone()
+        tv_lessonNum.gone()
+
+        updateIconCourseDone()
+
         iv_CourseDone.setOnClickListener {
-            _GoToCongratsListener?.let {
-               claimYourGift-> claimYourGift()
+            toCongratsListener?.let { claimYourGift ->
+                claimYourGift()
             }
         }
     }
-    private var _GoToCongratsListener: (() -> Unit)? = null
+
     fun addGoToCongratsListener(func: () -> Unit) {
-        this._GoToCongratsListener = func
+        this.toCongratsListener = func
     }
 
-
-
-
-    private fun UpdateIcon(v: Int) {
-        if (v == 0) {
-            iv_lessonIcon.visibility = View.INVISIBLE
-            return
-        } else
-            lessonIcon = lessonIconList[v - 1]
-        iv_lessonIcon.setImageResource(lessonIcon)
-        iv_lessonIcon.visibility = View.VISIBLE
-    }
-    private fun UpdateLessonNumber(v: Int) {
-        if (v == 0) {
-            tv_lessonNum.visibility = View.INVISIBLE //hide LessonNumber View if no progress
-            return
-        } else
-            lessonNumber = v
-        tv_lessonNum.text = "Lesson $v"
-        tv_lessonNum.visibility = View.VISIBLE
+    private fun updateProgressBarView(value: Int) {
+        pB_course.setProgressListener {
+            return@setProgressListener value
+        }
     }
 
-    private fun ubdateLessonTitle(v: String) {
-        tv_lessonTitle.text = v
+    private fun updateLessonIcon(v: Int) {
+        if (v > 0) {
+            iv_lessonIcon.setImageResource(lessonIconList[v - 1])
+            iv_lessonIcon.show()
+        }
     }
 
-     fun updateIconCourseDone() {
+    //show LessonNumber View only if  progress
+    private fun updateLessonNumber(v: Int) {
+        if (v > 0) {
+            tv_lessonNum.text = "Lesson $v"
+            tv_lessonNum.show()
+        }
+    }
 
-         if(progress!=5)
-             return
+    private fun updateLessonTitle(v: String) {
+        tv_headerTitle.text = v
+    }
 
-    else  iv_CourseDone.visibility = View.VISIBLE
-
-     }
+    fun updateIconCourseDone() {
+        if (progress == pB_course.max) iv_CourseDone.show()
+    }
 
 }
 

@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        enableStrictMode()
 //        check for Auth and if user not logged in go back to registration
 //        SignUpActivity.start(this)
         model = ViewModelProvider(this).get(AchievementsViewModel::class.java)
@@ -65,24 +64,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    /**
-     * DEBUG
-     * **/
-    private fun enableStrictMode() {
-        if (BuildConfig.DEBUG
-        /**using only in Debug Mode**/
-        ) {
-            /**Create StrictMode Policy**/
-            val policy = StrictMode.ThreadPolicy.Builder()
-                //.detectDiskReads().detectDiskWrites().detectNetwork()
-                .detectAll()
-                //.penaltyDialog().penaltyDeath()
-                .penaltyLog()
-                /**We can get multi penalty for one policy **/
-                .build();
 
-            /**Set StrictMode Policy **/
-            StrictMode.setThreadPolicy(policy);
-        }
-    }
 }

@@ -18,7 +18,7 @@ class CourseProgressBarView @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr, defStyleRes) {
 
     private var progress: Int = 0
-    private var max: Int = 5
+    val max: Int  get() = 5
     private var sliceWidth = floatToDP(24f).toInt()      //24dp
     private var sliceHeight = floatToDP(8f).toInt()      //8dp
     private var halfSliceWidth = floatToDP(8f).toInt()   //8dp

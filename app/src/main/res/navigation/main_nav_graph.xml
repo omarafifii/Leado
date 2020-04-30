@@ -14,15 +14,21 @@
 <!--            app:destination="@id/journey" />-->
         <action
             android:id="@+id/action_home_Fragment_to_journeyActivity"
-            app:destination="@id/journeyActivity" />
+            app:destination="@id/journeyActivity"
+            app:enterAnim="@anim/ib_core_anim_slide_in_right"
+            app:exitAnim="@anim/ib_core_anim_slide_out_left"
+            app:popEnterAnim="@anim/ib_core_anim_slide_in_left"
+            app:popExitAnim="@anim/ib_core_anim_slide_out_right"/>
 
     </fragment>
     <fragment
         android:id="@+id/search_Fragment"
         android:name="com.leado.ui.main.navBarFragments.search.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search"
-        />
+        tools:layout="@layout/fragment_search">
+    </fragment>
+
+
     <fragment
         android:id="@+id/leaderBoard_Fragment"
         android:name="com.leado.ui.main.navBarFragments.LeaderBoard.AchievementsFragment"

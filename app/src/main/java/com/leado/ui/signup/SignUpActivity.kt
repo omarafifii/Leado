@@ -96,6 +96,7 @@ val db = FirebaseFirestore.getInstance()
     }
 
     override fun getLoadingView(): View? = progress_loading
+
     companion object {
         fun start(context: Context) {
             val intent = Intent(context, SignUpActivity::class.java)
