@@ -9,18 +9,25 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.leado.R
 import com.leado.common.views.EqualWidthHeightTextView
+import com.leado.model.User
 import kotlinx.android.synthetic.main.leaderboard_item.view.*
 
 class LeaderboardViewAdapter() : RecyclerView.Adapter<LeaderboardViewAdapter.Viewholder>() {
 
-    var memberName = mutableListOf<String>()
-    set(value) {
-        field=value
-        notifyDataSetChanged()
-    }
-    var points = mutableListOf<String>()
+//    var memberName = mutableListOf<String>()
+//    set(value) {
+//        field=value
+//        notifyDataSetChanged()
+//    }
+//    var points = mutableListOf<String>()
+//        set(value) {
+//            field=value
+//            notifyDataSetChanged()
+//        }
+
+    var userList = mutableListOf<User>()
         set(value) {
-            field=value
+            field = value
             notifyDataSetChanged()
         }
 
@@ -30,9 +37,6 @@ class LeaderboardViewAdapter() : RecyclerView.Adapter<LeaderboardViewAdapter.Vie
         var pointsTV: TextView = itemView.tv_Leaderboard_points
         var imageResource: ImageView = itemView.iv_leaderboard_profile
         var rank: EqualWidthHeightTextView = itemView.findViewById(R.id.tv_rank)
-//        var circularRank: CircularTextView = itemView.R.id.circular_textview_rank
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
@@ -44,13 +48,13 @@ class LeaderboardViewAdapter() : RecyclerView.Adapter<LeaderboardViewAdapter.Vie
     }
 
     override fun getItemCount(): Int {
-        return memberName.size
+        return userList.size
     }
 
     override fun onBindViewHolder(holder: Viewholder, position: Int) {
         holder.imageResource.setImageResource(R.drawable.ic_badge_quicklearner)
-        holder.memberNameTV.text = memberName[position]
-        holder.pointsTV.text = points[position]
+        holder.memberNameTV.text = userList[position].name
+        holder.pointsTV.text = userList[position].points.toString()
         holder.rank.text = (position + 1).toString()
         if (position > 2) {
             holder.rank.setTextColor(Color.parseColor("#d5d8dd"))

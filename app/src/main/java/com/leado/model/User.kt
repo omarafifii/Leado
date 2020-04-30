@@ -10,9 +10,9 @@ data class User(
     var image: String="",
     var points: Int=0,
     var Rank: Int=0,
-    var badges: List<Badge>?=null,
+    var badges: List<Int>? = null,
     var lessonsById: Map<String, String>?=null
-,@ServerTimestamp val timeStamp: Date? = null
+    , @ServerTimestamp val timeStamp: Date? = null
 ) {
 
 }

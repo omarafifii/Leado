@@ -17,16 +17,16 @@ class AchievementsViewModel : ViewModel() {
 //    var badgesDescription =
 //        mutableListOf<String>("Desc. 1", "Desc. 2", "Desc. 3", "Desc. 4", "Desc. 5", "Desc. 6", "Desc. 7")
 
-    var memberName = mutableListOf<String>("Name 1", "Name 2", "Name 3", "Name 4", "Name 5", "Name 6", "Name 7")
-    var points = mutableListOf<String>(
-        "Points. 1",
-        "Points. 2",
-        "Points. 3",
-        "Points. 4",
-        "Points. 5",
-        "Points. 6",
-        "Points. 7"
-    )
+//    var memberName = mutableListOf<String>("Name 1", "Name 2", "Name 3", "Name 4", "Name 5", "Name 6", "Name 7")
+//    var points = mutableListOf<String>(
+//        "Points. 1",
+//        "Points. 2",
+//        "Points. 3",
+//        "Points. 4",
+//        "Points. 5",
+//        "Points. 6",
+//        "Points. 7"
+//    )
 
     private val badgesIcon = listOf(
         R.drawable.ic_badge_quicklearner,

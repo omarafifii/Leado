@@ -49,13 +49,6 @@ class BadgesFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "BadgesFragment// onResume before assign//${model.badgeByList.size} ")
-
-//        model.liveBadgeByList.observe(viewLifecycleOwner, Observer {
-//            model.badgeByList = it
-//        })
-//        recycler_achievements.apply {
-//            adapter = badgesAdapter
-//        }
         badgesAdapter.badgeByList = model.badgeByList
         badgesAdapter.notifyDataSetChanged()
         Log.d(TAG, "BadgesFragment// onResume after assign //${model.badgeByList.size} ")
