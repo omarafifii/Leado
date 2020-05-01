@@ -16,14 +16,12 @@ object LessonRepo : GetLessonInterface, AddLessonInterface {
     private val cacheSource = Source.CACHE  //Source can be CACHE, SERVER, or DEFAULT.
     private val collRef = db.collection(LESSON_COLLECTION)
 
-
     init {
         db.firestoreSettings = settings
     }
-
     override fun getLessonsByCourseTitle(courseTitle: String): MutableLiveData<MutableList<Lesson>> {
         val _liveLessonByCourse = MutableLiveData<MutableList<Lesson>>()
-        val query: Query = collRef.document(courseTitle).collection("$courseTitle-Lessons")
+        collRef.document(courseTitle).collection("$courseTitle-Lessons")
             .orderBy("title", Query.Direction.ASCENDING).apply {
                 addSnapshotListener { value, e ->
                     if (e != null) {
@@ -38,12 +36,12 @@ object LessonRepo : GetLessonInterface, AddLessonInterface {
         return _liveLessonByCourse
     }
 
-    override fun updateLesson(lessonID: String, courseTitle: String, updates: MutableMap<String, Any>): MutableLiveData<String> {
+    override fun updateLesson(lessonStringID: String, courseTitle: String, updates: MutableMap<String, Any>): MutableLiveData<String> {
         val _liveMessage = MutableLiveData<String>()
-        val apply: DocumentReference = collRef.document(courseTitle).collection("$courseTitle-Lessons")
-            .document("/$lessonID")
-            .apply {
 
+        collRef.document(courseTitle).collection("$courseTitle-Lessons")
+            .document(lessonStringID)
+            .apply {
                 addSnapshotListener { snapshot, e ->
                     if (e != null) {
                         Log.e(TAG, e.toString());return@addSnapshotListener
@@ -58,11 +56,8 @@ object LessonRepo : GetLessonInterface, AddLessonInterface {
                     .addOnSuccessListener { _liveMessage.value = "Lesson Updated " }
                     .addOnFailureListener { _liveMessage.value = "Lesson Update failed!" }
             }
-
-
         return _liveMessage
     }
-
 
     private fun updateLessonList(documents: List<DocumentSnapshot>): MutableList<Lesson> {
         val lessonList = mutableListOf<Lesson>()
@@ -78,23 +73,9 @@ object LessonRepo : GetLessonInterface, AddLessonInterface {
         }
         return lessonList
     }
-
-
-    //        override fun getLessonsByList(): MutableLiveData<MutableList<Lesson>> {
-//        val _liveLessonByList = MutableLiveData<MutableList<Lesson>>()
-//        collRef.orderBy("title", Query.Direction.ASCENDING)
-//            .get(defaultSource)
-//            .addOnSuccessListener { //			_liveLessonByList.value = updateLessonList(it.documents)
-//            }
-//            .addOnFailureListener { e -> Log.w(TAG, "Error Getting Lessons Data: ", e) }
-//        return _liveLessonByList
-//    }
-
 }
 
-
 interface GetLessonInterface {
-    //    fun getLessonsByList(): MutableLiveData<MutableList<Lesson>>
     //#3 get lessons for Selected Course
     fun getLessonsByCourseTitle(
         /**Courses Collection**/

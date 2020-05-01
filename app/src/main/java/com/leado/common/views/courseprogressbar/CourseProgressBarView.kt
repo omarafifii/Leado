@@ -18,7 +18,7 @@ class CourseProgressBarView @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr, defStyleRes) {
 
     private var progress: Int = 0
-    val max: Int  get() = 5
+    val max: Int get() = 5
     private var sliceWidth = floatToDP(24f).toInt()      //24dp
     private var sliceHeight = floatToDP(8f).toInt()      //8dp
     private var halfSliceWidth = floatToDP(8f).toInt()   //8dp
@@ -47,13 +47,15 @@ class CourseProgressBarView @JvmOverloads constructor(
     init {
         setPadding(paddingLeft + floatToDP(16f).toInt(), paddingTop, paddingRight, paddingBottom)
         this.sliceDrawable = ContextCompat.getDrawable(context, R.drawable.ic_progress_bar_slice)
-
-
     }
 
     private fun setProgressView() {
         sliceDrawable?.level = max
-        sliceDrawable?.setTint(resources.getColor(R.color.colorAccent))
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O)
+        ContextCompat.getDrawable(context, R.drawable.ic_progress_bar_slice)
+        else
+            sliceDrawable?.setTint(resources.getColor(R.color.colorAccent,null))
+
         invalidate()
     }
 
@@ -91,10 +93,14 @@ class CourseProgressBarView @JvmOverloads constructor(
     private fun drawEmptySlices() {
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.O)
         //for api lower than 26
+        {
             this.sliceDrawable =
                 ContextCompat.getDrawable(context, R.drawable.ic_progress_bar_slice_empty)
+            invalidate()
+        }
         else
             this.sliceDrawable?.setTint(colorEmpty)
+
     }
 
     private fun floatToDP(value: Float): Float {

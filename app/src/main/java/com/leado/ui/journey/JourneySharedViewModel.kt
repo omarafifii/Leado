@@ -2,6 +2,7 @@ package com.leado.ui.journey
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.google.firebase.firestore.FieldValue
 import com.leado.R
 import com.leado.model.Lesson
 import com.leado.repos.LessonRepo
@@ -10,20 +11,22 @@ class JourneySharedViewModel : ViewModel() {
     private val TAG = this.javaClass.simpleName
 
     private val lessonRepo = LessonRepo
-    private var _progress: Int = 0
+
+    private var _progress: Int = 0  //store progress for ProgressView
+
+    var updates = mutableMapOf<String, Any>()
+    var startVideoPoint = 0f
+
     var courseTitle = ""
     val _liveCourseTitle = MutableLiveData<String>() //assigning in Journey activity
 
-    var lessonID = ""
-    val _liveUpdateLessonID = MutableLiveData<String>() //assigning in Lesson Fragment
+    var lessonStringID = ""
+    val _liveUpdateLessonStringID = MutableLiveData<String>() //assigning in Lesson Fragment
 
     var lessonByList = mutableListOf<Lesson>()
-    var updates = mutableMapOf<String, Any>()
-
     private val _liveProgressLessons = MutableLiveData<Int>()
-    val liveProgressLessons: LiveData<Int> get() = _liveProgressLessons
 
-    var startVideoSeconds = 0f
+    val liveProgressLessons: LiveData<Int> get() = _liveProgressLessons
 
     protected val _showCompleteIcon: MutableLiveData<Boolean> = MutableLiveData()
     val showCompleteIcon: LiveData<Boolean> get() = _showCompleteIcon
@@ -51,6 +54,27 @@ class JourneySharedViewModel : ViewModel() {
         }
     }
 
+
+    val liveLessonStringID = Transformations.switchMap(_liveUpdateLessonStringID) { lessonStringID ->
+        this.lessonStringID = lessonStringID
+        updates["timestamp"]=FieldValue.serverTimestamp()
+        LessonRepo.updateLesson(lessonStringID, courseTitle, updates).switchMap { message ->
+            val _liveUpdateLesson = MutableLiveData<String>()
+            _liveUpdateLesson.value = message
+            return@switchMap _liveUpdateLesson
+        }
+    }
+
+    fun updateNextLesson(idLesson: Int) {
+//1#        val first = lessonByList.first { !it.isActive }
+//2#      val(active,notActive) = lessonByList.partition { it.isActive }
+        if (idLesson == lessonByList.size) return    //lessons id starts from 1 2 3 ... etc
+            courseTitle = lessonByList[idLesson].courseCategory  // lesson Course category for collection Course  path
+            updates = mutableMapOf("active" to true)
+            _liveUpdateLessonStringID.value = lessonByList[idLesson].stringId
+
+    }
+
     private fun updateLessonIcon(lessons: MutableList<Lesson>) {
         this._progress = 0
         lessons.mapIndexed { idx, lesson ->
@@ -60,43 +84,4 @@ class JourneySharedViewModel : ViewModel() {
         }
         _liveProgressLessons.value = _progress
     }
-
-    val liveLessonID = Transformations.switchMap(_liveUpdateLessonID) { lessonID ->
-        this.lessonID = lessonID
-        LessonRepo.updateLesson(lessonID, courseTitle, updates).switchMap { message ->
-            Log.d(TAG, "$updates")
-            val _liveUpdateLesson = MutableLiveData<String>()
-            _liveUpdateLesson.value = message
-            return@switchMap _liveUpdateLesson
-        }
-    }
-
-    fun updateNextLesson(id: Int) {
-//1#        val first = lessonByList.first { !it.isActive }
-//  2#      val(active,notActive) = lessonByList.partition { it.isActive }
-
-//        Log.d(TAG, "$active")
-//        Log.d(TAG, "$notActive")
-        if (id == lessonByList.size) {
-            return
-        } else {
-            courseTitle = lessonByList[id].courseCategory
-            updates= mutableMapOf("active" to true,
-            "videoPoint" to 0)
-            _liveUpdateLessonID.value = lessonByList[id].stringId
-        }
-    }
-
-//
-//    val liveLessonByList = lessonRepo.getLessonsByList().switchMap {
-//        it.forEachIndexed() { index, lesson ->
-//            updateLessonIcon( index, lesson)
-//        }
-//        lessonByList.clear()
-//        lessonByList.addAll(it)
-//        val _liveLessonByList = MutableLiveData<MutableList<Lesson>>()
-//        _liveLessonByList.value = it
-//
-//        return@switchMap _liveLessonByList
-//    }
 }

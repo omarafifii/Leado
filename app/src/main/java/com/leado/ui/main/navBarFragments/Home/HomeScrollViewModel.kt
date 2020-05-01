@@ -17,10 +17,11 @@ class HomeScrollViewModel : ViewModel() {
         R.drawable.ic_course_2,
         R.drawable.ic_course_3
                                  )
-
     /**get Courses for HomeScroll**/
 
     val liveCourseByList = courseRepo.getCoursesByList().switchMap {courseList ->
+
+
         //assigning icon for each course then pass it in live data
         courseList.zip(iconList){course,icon-> course.icon = icon}
 

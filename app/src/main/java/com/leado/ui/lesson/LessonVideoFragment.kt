@@ -29,30 +29,24 @@ class LessonVideoFragment : Fragment() {
 
     private lateinit var lesson: Lesson
     private lateinit var modelShared: JourneySharedViewModel
-
-    private val tracker = YouTubePlayerTracker()
     private val args: LessonVideoFragmentArgs by navArgs()
+
+    private val tracker = YouTubePlayerTracker()  //youtube Listener
     private var toast: Toast? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         modelShared = requireActivity().run { ViewModelProvider(this).get(JourneySharedViewModel::class.java) }
-
-        toast = Toast.makeText(requireContext(), "", Toast.LENGTH_LONG)
         lesson = args.lesson
-        modelShared.startVideoSeconds = lesson.videoPoint
 
-        modelShared.liveLessonID.observe(this, Observer { message->
-            Log.d(TAG,message )
-        })
+        toast = Toast.makeText(requireContext(),"", Toast.LENGTH_LONG)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (savedInstanceState != null) {
 //            model.startVideoSeconds = savedInstanceState.getFloat("videoStart", 0f)
-
+// use this with savedInstanceState Now it replaced with view model
         }
         return inflater.inflate(R.layout.fragment_lesson, container, false)
     }
@@ -60,20 +54,19 @@ class LessonVideoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         lifecycle.addObserver(youtube_player_view)
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        courseHeader?.progress = lesson.id
-        courseHeader?.lessonTitle = lesson.title
-        tv_lesson_desc.text = lesson.description
+        courseHeader?.progress = lesson.id //update Progress
+        courseHeader?.lessonTitle = lesson.title //update Header Title
+        tv_lesson_desc.text = lesson.description //update course description
+        modelShared.startVideoPoint = lesson.videoPoint // save last video point in vModel
+        modelShared.liveLessonStringID.observe(viewLifecycleOwner, Observer {})// observe for updates lesson by string Id
 
-        courseHeader?.addGoToCongratsListener {
-            findNavController().navigate(R.id.action_lessonFragment_to_congratsFragment)
-        }
-        courseHeader?.addGoToQuizListener {
-            findNavController().navigate(R.id.action_lessonFragment_to_quizFragment)
-        }
+        courseHeader?.addGoToCongratsListener { findNavController().navigate(R.id.action_lessonFragment_to_congratsFragment) }
+        courseHeader?.addGoToQuizListener { findNavController().navigate(R.id.action_lessonFragment_to_quizFragment) }
     }
 
     override fun onResume() {
@@ -81,61 +74,48 @@ class LessonVideoFragment : Fragment() {
         youtube_player_view.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
                 youTubePlayer.addListener(tracker)
-                youTubePlayer.loadOrCueVideo(lifecycle, lesson.link, modelShared.startVideoSeconds)
+                youTubePlayer.loadOrCueVideo(lifecycle, lesson.link, modelShared.startVideoPoint)
             }
-
             override fun onStateChange(youTubePlayer: YouTubePlayer, state: PlayerConstants.PlayerState) {
                 when (state) {
-                    PAUSED ->{
-                        Log.d(TAG, "//Video Pause ${modelShared.updates}")
-                        showToast("PAUSED")}
+                    PAUSED -> showToast("PAUSED")
                     PLAYING -> showToast("PLAYING")
                     ENDED -> {
+                        courseHeader?.showQuizIcon()
                         showToast("ENDED")
                         courseHeader?.showCourseDoneIcon()
-                        courseHeader?.showQuizIcon()
-                      modelShared.updateNextLesson(lesson.id)
+                        modelShared.updateNextLesson(lesson.id)
                     }
                     BUFFERING -> showToast("BUFFERING")
                     else -> showToast("Something Wrong!")
                 }
-            }
-
-            override fun onPlaybackQualityChange(youTubePlayer: YouTubePlayer, playbackQuality: PlayerConstants.PlaybackQuality) {
-                super.onPlaybackQualityChange(youTubePlayer, playbackQuality)
-            }
-        })
-
+            } })
     }
 
-    override fun onPause() {
-        Log.d(TAG, "//onPause")
-
-        lesson.videoPoint = tracker.currentSecond  // save video progress in lesson
-        modelShared.courseTitle = lesson.courseCategory // pass lesson category to model
-        modelShared.startVideoSeconds = lesson.videoPoint //pass video progress to model
-        modelShared.updates["videoPoint"] = lesson.videoPoint //set updates in model
-        modelShared._liveUpdateLessonID.value= lesson.stringId //fire life cycle to update
-        super.onPause()
-    }
-
-    private fun showToast(text: String) {
-        toast?.setText(text)
-        toast?.show()
-    }
+    private fun showToast(text: String) { toast?.setText(text);toast?.show() }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putFloat("videoStart", tracker.currentSecond)
-
+//        outState.putFloat("videoStart", tracker.currentSecond)
     }
-
+    override fun onPause() {
+        super.onPause()
+        //{
+        //TODO :: this code block could be in vModel
+        modelShared.startVideoPoint = tracker.currentSecond  //pass video progress to model
+        modelShared.updates["videoPoint"] = tracker.currentSecond  //pass video progress to model
+        modelShared.courseTitle = lesson.courseCategory // pass lesson category to model
+        //}
+        modelShared._liveUpdateLessonStringID.value= lesson.stringId // update lesson itself
+    }
     override fun onDestroyView() {
         toast?.cancel()
-        //        model.startVideoSeconds = tracker.currentSecond
         youtube_player_view.release()
         youtube_player_view.removeYouTubePlayerListener(tracker)
         super.onDestroyView()
-
     }
+
+
+
+
 }
