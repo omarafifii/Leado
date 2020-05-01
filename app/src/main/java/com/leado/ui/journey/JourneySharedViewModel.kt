@@ -18,7 +18,7 @@ class JourneySharedViewModel : ViewModel() {
     val _liveUpdateLessonID = MutableLiveData<String>() //assigning in Lesson Fragment
 
     var lessonByList = mutableListOf<Lesson>()
-    val updates = mutableMapOf<String, Any>()
+    var updates = mutableMapOf<String, Any>()
 
     private val _liveProgressLessons = MutableLiveData<Int>()
     val liveProgressLessons: LiveData<Int> get() = _liveProgressLessons
@@ -81,7 +81,8 @@ class JourneySharedViewModel : ViewModel() {
             return
         } else {
             courseTitle = lessonByList[id].courseCategory
-            updates["active"] = true
+            updates= mutableMapOf("active" to true,
+            "videoPoint" to 0)
             _liveUpdateLessonID.value = lessonByList[id].stringId
         }
     }
