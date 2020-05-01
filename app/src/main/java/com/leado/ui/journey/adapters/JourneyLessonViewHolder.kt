@@ -13,11 +13,12 @@ class JourneyLessonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
         currentLesson: Lesson,
         lessonClickListener: OnLessonClickListener, lessonListener: ((Lesson) -> Unit)?){
     itemView.apply {
+
         tv_lessonTitle.text = currentLesson.title
         tv_lessonNum.text = "Lesson ${currentLesson.id}"
         tv_lessonDesc.text = currentLesson.description
         bt_startLesson.isEnabled= false
-
+        bt_startLesson.background = itemView.context.getDrawable(R.drawable.curved_button_gray)
             if (currentLesson.isActive) {
             bt_startLesson.isEnabled= true
             bt_startLesson.text = "Start"

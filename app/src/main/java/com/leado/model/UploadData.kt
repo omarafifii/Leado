@@ -1,5 +1,6 @@
 package com.leado.model
 
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 
@@ -33,9 +34,14 @@ class UploadData() {
             )
 
 //            db.collection("$path").document("$str").set(course) //course
+
+//            val updates = hashMapOf<String, Any>(
+//                "timestamp" to FieldValue.serverTimestamp(),
+//            "courseCategory" to "$str"
+//            )
 //            mutablelessons.forEach {
 //
-//                db.collection("/Users/User_1/User_Courses/$str/$str-Lessons").document().set(it)
+////                db.collection("/Users/User_1/User_Courses/$str/$str-Lessons").document().update(updates)
 //            }
 
         }

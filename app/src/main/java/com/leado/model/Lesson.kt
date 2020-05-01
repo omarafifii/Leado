@@ -12,12 +12,14 @@ data class Lesson(
     var description: String = "",
     var link: String = "",
     var courseCategory:String="",
+    var stringId: String = "",
     var id: Int = 0,
     var icon: Int = 0,
     var isActive:Boolean = false,
     var videoPoint:Float = 0f
 ) :Parcelable{
     constructor(parcel: Parcel) : this(
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -34,6 +36,7 @@ data class Lesson(
         parcel.writeString(description)
         parcel.writeString(link)
         parcel.writeString(courseCategory)
+        parcel.writeString(stringId)
         parcel.writeInt(id)
         parcel.writeInt(icon)
         parcel.writeByte(if (isActive) 1 else 0)
