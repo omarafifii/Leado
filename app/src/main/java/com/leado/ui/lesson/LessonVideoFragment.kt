@@ -40,13 +40,14 @@ class LessonVideoFragment : Fragment() {
         modelShared = requireActivity().run { ViewModelProvider(this).get(JourneySharedViewModel::class.java) }
         lesson = args.lesson
 
-        toast = Toast.makeText(requireContext(),"", Toast.LENGTH_LONG)
+        toast = Toast.makeText(requireContext(), "", Toast.LENGTH_LONG)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (savedInstanceState != null) {
-//            model.startVideoSeconds = savedInstanceState.getFloat("videoStart", 0f)
-// use this with savedInstanceState Now it replaced with view model
+            modelShared.startVideoPoint = savedInstanceState.getFloat("videoStart", 0f) // use this with savedInstanceState Now it replaced with view model
+        } else {
+            modelShared.startVideoPoint = lesson.videoPoint // save last video point in vModel
         }
         return inflater.inflate(R.layout.fragment_lesson, container, false)
     }
@@ -62,7 +63,7 @@ class LessonVideoFragment : Fragment() {
         courseHeader?.progress = lesson.id //update Progress
         courseHeader?.lessonTitle = lesson.title //update Header Title
         tv_lesson_desc.text = lesson.description //update course description
-        modelShared.startVideoPoint = lesson.videoPoint // save last video point in vModel
+
         modelShared.liveLessonStringID.observe(viewLifecycleOwner, Observer {})// observe for updates lesson by string Id
 
         courseHeader?.addGoToCongratsListener { findNavController().navigate(R.id.action_lessonFragment_to_congratsFragment) }
@@ -74,8 +75,10 @@ class LessonVideoFragment : Fragment() {
         youtube_player_view.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
                 youTubePlayer.addListener(tracker)
+
                 youTubePlayer.loadOrCueVideo(lifecycle, lesson.link, modelShared.startVideoPoint)
             }
+
             override fun onStateChange(youTubePlayer: YouTubePlayer, state: PlayerConstants.PlayerState) {
                 when (state) {
                     PAUSED -> showToast("PAUSED")
@@ -89,15 +92,19 @@ class LessonVideoFragment : Fragment() {
                     BUFFERING -> showToast("BUFFERING")
                     else -> showToast("Something Wrong!")
                 }
-            } })
+            }
+        })
     }
 
-    private fun showToast(text: String) { toast?.setText(text);toast?.show() }
+    private fun showToast(text: String) {
+        toast?.setText(text);toast?.show()
+    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-//        outState.putFloat("videoStart", tracker.currentSecond)
+        outState.putFloat("videoStart", tracker.currentSecond)
     }
+
     override fun onPause() {
         super.onPause()
         //{
@@ -106,8 +113,9 @@ class LessonVideoFragment : Fragment() {
         modelShared.updates["videoPoint"] = tracker.currentSecond  //pass video progress to model
         modelShared.courseTitle = lesson.courseCategory // pass lesson category to model
         //}
-        modelShared._liveUpdateLessonStringID.value= lesson.stringId // update lesson itself
+        modelShared._liveUpdateLessonStringID.value = lesson.stringId // update lesson itself
     }
+
     override fun onDestroyView() {
         toast?.cancel()
         youtube_player_view.release()

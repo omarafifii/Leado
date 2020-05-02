@@ -5,34 +5,24 @@ import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.*
 import com.leado.model.Course
 
-object CourseRepo : GetCourseInterface {
+object  CourseRepo : BaseFireStore(), GetCourseInterface {
 
 	private val TAG = this.javaClass.simpleName
-	private const val COURSE_COLLECTION = "/Users/User_1/User_Courses" //move to constants
+	private val COURSE_COLLECTION = "/Users/User_1/User_Courses" //move to constants
 	private val courseList = mutableListOf<Course>()
 
-	private val db = FirebaseFirestore.getInstance()
-	private val settings = FirebaseFirestoreSettings.Builder()
-			.setPersistenceEnabled(true)
-			.build()
-	private val defaultSource = Source.DEFAULT  //Source can be CACHE, SERVER, or DEFAULT.
-	private val cacheSource = Source.CACHE  //Source can be CACHE, SERVER, or DEFAULT.
-
-	init {
-		db.firestoreSettings = settings
-	}
 
 	override fun getCoursesByList(): MutableLiveData<MutableList<Course>> {
 		val liveCourseByList = MutableLiveData<MutableList<Course>>()
 		db.collection(COURSE_COLLECTION).orderBy("id", Query.Direction.ASCENDING)
-				.get(defaultSource)
-				.addOnSuccessListener {
+			.get(defaultSource)
+			.addOnSuccessListener {
 
-					liveCourseByList.value = updateCourseList(it.documents)
-				}
-				.addOnFailureListener { e ->
-					Log.e(TAG, "//Error Getting Course Data: ", e)
-				}
+				liveCourseByList.value = updateCourseList(it.documents)
+			}
+			.addOnFailureListener { e ->
+				Log.e(TAG, "//Error Getting Course Data: ", e)
+			}
 		return liveCourseByList
 	}
 
@@ -42,8 +32,10 @@ object CourseRepo : GetCourseInterface {
 			documents.forEach { doc ->
 
 				Log.d(TAG, (doc.toObject(Course::class.java)!!).toString())
-				courseList.add(/**convert DocumentSnapshot data to Course obj**/
-						doc.toObject(Course::class.java)!!)
+				courseList.add(
+					/**convert DocumentSnapshot data to Course obj**/
+					doc.toObject(Course::class.java)!!
+				)
 			}
 		}
 		return courseList

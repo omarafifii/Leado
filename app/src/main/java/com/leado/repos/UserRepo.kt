@@ -11,27 +11,12 @@ import com.leado.model.Course
 import com.leado.model.Lesson
 import com.leado.model.User
 
-object UserRepo: GetUser {
-
+object UserRepo: BaseFireStore(),GetUser {
     private val TAG = this.javaClass.simpleName
 
-    private val COURSE_COLECTION = "Courses" //move to constants
-
-    private val db = FirebaseFirestore.getInstance()
-    private val settings = FirebaseFirestoreSettings.Builder()
-        .setPersistenceEnabled(true)
-        .build()
-
-    private val defaultSource = Source.DEFAULT  //Source can be CACHE, SERVER, or DEFAULT.
-    private val cacheSource = Source.CACHE  //Source can be CACHE, SERVER, or DEFAULT.
     private const val USERS_COLLECTION = "Users"
-    init {
-
-        db.firestoreSettings = settings
-
-
-    }
     private var user = User()
+
     override fun getUser(id: String): MutableLiveData<User> {
 val _liveUser = MutableLiveData<User>()
         db.collection(USERS_COLLECTION).whereEqualTo("id", id)
