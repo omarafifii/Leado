@@ -44,7 +44,6 @@ class AchievementsFragment : Fragment() {
         view_pager_achievements.adapter = adapterViewPager
 
         tabs.setupWithViewPager(view_pager_achievements)
-
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

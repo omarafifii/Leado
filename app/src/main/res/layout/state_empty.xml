@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools">
 
-	<data>
-
-	</data>
-
-		<LinearLayout
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="32dp"
-			android:layout_marginRight="32dp"
-			android:layout_gravity="center"
-			android:orientation="vertical"
-			android:padding="16dp"
-			android:gravity="center_horizontal"
-			android:background="@drawable/background_dotted"
-			>
+<LinearLayout android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_marginLeft="32dp"
+	android:layout_marginRight="32dp"
+	android:layout_gravity="center"
+	android:orientation="vertical"
+	android:padding="16dp"
+	android:gravity="center_horizontal"
+	android:background="@drawable/background_dotted"
+	xmlns:android="http://schemas.android.com/apk/res/android">
 			<TextView
 				android:id="@+id/tvEmptyState_title"
 				android:layout_width="wrap_content"
@@ -56,5 +50,3 @@
 				/>
 
 		</LinearLayout>
-
-</layout>
