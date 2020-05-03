@@ -9,9 +9,6 @@
         android:name="com.leado.ui.main.navBarFragments.Home.HomeScrollFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home_scrolled">
-<!--        <action-->
-<!--            android:id="@+id/action_home_Fragment_to_journey"-->
-<!--            app:destination="@id/journey" />-->
         <action
             android:id="@+id/action_home_Fragment_to_journeyActivity"
             app:destination="@id/journeyActivity"
@@ -19,7 +16,6 @@
             app:exitAnim="@anim/ib_core_anim_slide_out_left"
             app:popEnterAnim="@anim/ib_core_anim_slide_in_left"
             app:popExitAnim="@anim/ib_core_anim_slide_out_right"/>
-
     </fragment>
     <fragment
         android:id="@+id/search_Fragment"
@@ -27,8 +23,6 @@
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search">
     </fragment>
-
-
     <fragment
         android:id="@+id/leaderBoard_Fragment"
         android:name="com.leado.ui.main.navBarFragments.LeaderBoard.AchievementsFragment"
@@ -41,43 +35,6 @@
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile"
         />
-
-    <fragment
-        android:id="@+id/journey"
-        android:name="com.leado.ui.journey.JourneyFragment"
-        android:label="Journey"
-        tools:layout="@layout/fragment_journey"
-        >
-<!--        <action-->
-<!--            android:id="@+id/action_journey_to_lessonActivity"-->
-<!--            app:destination="@id/lessonActivity" />-->
-        <argument
-            android:name="coursetitle"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_journey_to_lessonFragment"
-            app:destination="@id/lessonFragment" />
-
-    </fragment>
-
-    <fragment
-        android:id="@+id/lessonFragment"
-        android:name="com.leado.ui.lesson.LessonVideoFragment"
-        android:label="LessonFragment"
-        tools:layout="@layout/fragment_lesson">
-    <argument
-        android:name="lesson"
-        app:argType="com.leado.model.Lesson" />
-        <action
-            android:id="@+id/action_lessonFragment_to_congratsFragment"
-            app:destination="@id/congratsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/congratsFragment"
-        android:name="com.leado.ui.congrats.CongratsFragment"
-        android:label="CongratsFragment"
-        tools:layout="@layout/fragment_congrats"
-        />
     <activity
         android:id="@+id/journeyActivity"
         android:name="com.leado.ui.journey.JourneyActivity"
@@ -88,6 +45,5 @@
             android:name="coursetitle"
             app:argType="string" />
     </activity>
-
 <!--        <include app:graph="@navigation/journey_nav_graph" />-->
 </navigation>

@@ -1,5 +1,6 @@
 package com.leado.ui.main.navBarFragments.Home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.leado.R
 import androidx.lifecycle.*
@@ -8,30 +9,28 @@ import com.leado.repos.CourseRepo
 import com.leado.repos.UserRepo
 
 class HomeScrollViewModel : ViewModel() {
+
+    private val TAG = this.javaClass.simpleName
     private var courseRepo = CourseRepo
     private var userRepo = UserRepo
-    private  val USER_ID = "user1"
+    private val USER_ID = "user1"
     var courseByList = mutableListOf<Course>()
-    private val iconList = listOf(
-        R.drawable.ic_course_1,
-        R.drawable.ic_course_2,
-        R.drawable.ic_course_3
-                                 )
+    private val iconList = listOf(R.drawable.ic_course_1, R.drawable.ic_course_2, R.drawable.ic_course_3)
+
     /**get Courses for HomeScroll**/
-
-    val liveCourseByList = courseRepo.getCoursesByList().switchMap {courseList ->
-
-
+    val liveCourseByList by lazy {
+       return@lazy courseRepo.getCoursesByList().switchMap { courseList ->
         //assigning icon for each course then pass it in live data
-        courseList.zip(iconList){course,icon-> course.icon = icon}
+        courseList.zip(iconList) { course, icon -> course.icon = icon }
 
-        courseByList.clear()
-        courseByList.addAll(courseList)
+        with(courseByList) { clear(); addAll(courseList) }
 
-        val _liveCourseByList = MutableLiveData<MutableList<Course>>()
+        val _liveCourseByList= MutableLiveData<MutableList<Course>>()
         _liveCourseByList.value = courseList
 
+        Log.d(TAG, "//@lazy")
         return@switchMap _liveCourseByList
+    }
     }
 
     /**get User **/

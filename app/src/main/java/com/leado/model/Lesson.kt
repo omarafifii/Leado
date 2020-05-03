@@ -8,11 +8,11 @@ import java.util.*
 
 data class Lesson(
 
-    var title: String = "",
-    var description: String = "",
-    var link: String = "",
-    var courseCategory:String="",
-    var stringId: String = "",
+    var title: String ?= "",
+    var description: String ?= "",
+    var link: String? = "",
+    var courseCategory:String?="",
+    var stringId: String ?= "",
     var id: Int = 0,
     var icon: Int = 0,
     var isActive:Boolean = false,

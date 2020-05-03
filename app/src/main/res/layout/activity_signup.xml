@@ -97,9 +97,10 @@
                     app:boxStrokeWidth="1dp"
                     app:endIconMode="custom"
                     app:helperText="@string/verify_hint"
-                    app:helperTextEnabled="true"
+                app:helperTextEnabled="true"
                     app:hintTextColor="@color/colorAccent"
-                    app:startIconDrawable="@drawable/ic_phone">
+                    app:startIconDrawable="@drawable/ic_phone"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/text_input_phoneNumber"
@@ -109,7 +110,6 @@
                         android:inputType="phone"
                         android:maxLines="1"
                         android:singleLine="true" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>

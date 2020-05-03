@@ -34,14 +34,14 @@
             android:gravity="center_horizontal"
             android:textColor="@color/colorTextDark"
             android:textSize="18sp"
-            tools:text="Emily Petersz" />
+            tools:text="Leado Team_3" />
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="student" />
+            android:text="Hero" />
 
     </LinearLayout>
 
@@ -70,7 +70,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="7"
+                android:text="0"
                 android:textColor="@color/colorTextDark"
                 android:textSize="18sp" />
 
@@ -98,7 +98,8 @@
                 android:gravity="center"
                 android:textColor="@color/colorTextDark"
                 android:textSize="18sp"
-                tools:text="193.79" />
+                android:text="0.0"
+                tools:text="0.0" />
 
             <TextView
                 android:id="@+id/textView29"
@@ -124,7 +125,8 @@
                 android:gravity="center"
                 android:textColor="@color/colorTextDark"
                 android:textSize="18sp"
-                tools:text="11" />
+                android:text="--"
+                tools:text="--" />
 
             <TextView
                 android:id="@+id/textView31"

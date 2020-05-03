@@ -47,7 +47,7 @@ val db = FirebaseFirestore.getInstance()
             )
         }
 
-        //        text_input_phoneNumber.requestFocus()
+//                text_input_phoneNumber.requestFocus()
 //        text_input_phoneNumber.addTextChangedListener {
 //            if (it.toString().isNotEmpty())
 //                viewModel.validatePhone(it.toString())

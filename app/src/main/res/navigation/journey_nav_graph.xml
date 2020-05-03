@@ -17,7 +17,8 @@
             app:enterAnim="@anim/ib_core_anim_slide_in_right"
             app:exitAnim="@anim/ib_core_anim_slide_out_left"
             app:popEnterAnim="@anim/ib_core_anim_slide_in_left"
-            app:popExitAnim="@anim/ib_core_anim_slide_out_right" />
+            app:popExitAnim="@anim/ib_core_anim_slide_out_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/lessonFragment"

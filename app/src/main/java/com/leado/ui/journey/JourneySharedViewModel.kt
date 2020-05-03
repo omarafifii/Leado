@@ -69,7 +69,7 @@ class JourneySharedViewModel : ViewModel() {
 //1#        val first = lessonByList.first { !it.isActive }
 //2#      val(active,notActive) = lessonByList.partition { it.isActive }
         if (idLesson == lessonByList.size) return    //lessons id starts from 1 2 3 ... etc
-            courseTitle = lessonByList[idLesson].courseCategory  // lesson Course category for collection Course  path
+            courseTitle = lessonByList[idLesson].courseCategory!! // lesson Course category for collection Course  path
             updates = mutableMapOf("active" to true)
             _liveUpdateLessonStringID.value = lessonByList[idLesson].stringId
 

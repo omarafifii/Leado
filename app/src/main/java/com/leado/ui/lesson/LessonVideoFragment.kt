@@ -61,7 +61,7 @@ class LessonVideoFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         courseHeader?.progress = lesson.id //update Progress
-        courseHeader?.lessonTitle = lesson.title //update Header Title
+        courseHeader?.lessonTitle = lesson.title!! //update Header Title
         tv_lesson_desc.text = lesson.description //update course description
 
         modelShared.liveLessonStringID.observe(viewLifecycleOwner, Observer {})// observe for updates lesson by string Id
@@ -76,7 +76,7 @@ class LessonVideoFragment : Fragment() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
                 youTubePlayer.addListener(tracker)
 
-                youTubePlayer.loadOrCueVideo(lifecycle, lesson.link, modelShared.startVideoPoint)
+                youTubePlayer.loadOrCueVideo(lifecycle, lesson.link!!, modelShared.startVideoPoint)
             }
 
             override fun onStateChange(youTubePlayer: YouTubePlayer, state: PlayerConstants.PlayerState) {
@@ -111,7 +111,7 @@ class LessonVideoFragment : Fragment() {
         //TODO :: this code block could be in vModel
         modelShared.startVideoPoint = tracker.currentSecond  //pass video progress to model
         modelShared.updates["videoPoint"] = tracker.currentSecond  //pass video progress to model
-        modelShared.courseTitle = lesson.courseCategory // pass lesson category to model
+        modelShared.courseTitle = lesson.courseCategory!! // pass lesson category to model
         //}
         modelShared._liveUpdateLessonStringID.value = lesson.stringId // update lesson itself
     }
